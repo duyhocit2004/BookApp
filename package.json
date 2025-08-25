@@ -16,7 +16,7 @@
   "main": "index.js",
   "scripts": {
     "start" : "nodemon index.js",
-    "database":"./src/config/createDatabase.js"
+    "database":"node ./src/config/createDatabase.js"
   },
   "author": "",
   "license": "ISC",

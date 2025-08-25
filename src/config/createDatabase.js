@@ -10,7 +10,7 @@ const nameDB = "Bookapp"
 
 async function CreateDatabase() {
     try {
-        await sequelize.query(`CREATE DATABASE IF NOT EXITS ${nameDB} `);
+        await sequelize.query(`CREATE DATABASE ${nameDB} `);
         console.log("Tạo database thành công");
     } catch (error) {
         console.log("tạo không thành công" + error);
