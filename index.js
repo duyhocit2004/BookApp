@@ -3,6 +3,8 @@ const app = express()
 const port = 3000
 const Routers = require('./src/routes/web')
 
+const database = require('./src/config/db')
+
 app.use(express.static('public'))
 
 app.set('view engine', 'ejs');
@@ -20,4 +22,5 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
+  console.log(database)
 })

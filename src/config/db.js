@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 
-connectDatabase = async () => {
+const connectDatabase = async () => {
     const sequelize = new Sequelize('Bookapp', 'root', '', {
         host: 'localhost',
         dialect: "mysql",
@@ -11,6 +11,7 @@ connectDatabase = async () => {
     try {
         await sequelize.authenticate()
         console.log("kết nối thành công");
+        console.log(sequelize);
         return sequelize;
     } catch (error) {
         console.log("kết nối thất bại" + error)
@@ -18,4 +19,4 @@ connectDatabase = async () => {
     }
 }
 
-module.exports = connectDatabase;
+module.exports = {connectDatabase}
