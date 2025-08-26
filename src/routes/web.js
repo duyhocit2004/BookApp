@@ -3,7 +3,7 @@ const multer = require('multer');
 const Routers = express.Router();
 
 //Controller
-const AuthController = require('../controllers/authController');
+const AuthController = require('../controllers/AuthController');
 const HomeController = require('../controllers/homeController');
 
 //Model
