@@ -5,5 +5,5 @@ exports.FormLogin =(req,res,next)=>{
 }
 
 exports.LoginClient = (req,res,next)=>{
-   return AuthService.LoginClient(req,res);
+   return AuthService.FormLogin(req,res);
 }
