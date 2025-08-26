@@ -4,7 +4,7 @@ const validator = require('validator');
 const JWT = require('jsonwebtoken');
 require('dotenv').config();
 
-exports.FormLogin = async (req, res) => {
+exports.LoginClient = async (req, res) => {
     try {
         // kết nối với model
         const connect = await User();
