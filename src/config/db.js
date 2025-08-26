@@ -11,7 +11,6 @@ const connectDatabase = async () => {
     try {
         await sequelize.authenticate()
         console.log("kết nối thành công");
-        console.log(sequelize);
         return sequelize;
     } catch (error) {
         console.log("kết nối thất bại" + error)

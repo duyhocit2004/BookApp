@@ -3,7 +3,8 @@ const multer = require('multer');
 const Routers = express.Router();
 
 //Controller
-const productController = require('../controllers/productController');
+const AuthController = require('../controllers/authController');
+const HomeController = require('../controllers/homeController');
 
 //Model
 
@@ -32,7 +33,10 @@ const upload = multer({
 });
 
 
-Routers.get('/product', productController.duy);
+Routers.get('/', HomeController.Home);
+
+Routers.get('/FormLogin', AuthController.FormLogin);
+Routers.post('/LoginClient', AuthController.LoginClient);
 
 
 Routers.post('/upload', upload.single('file'), (req, res) => {

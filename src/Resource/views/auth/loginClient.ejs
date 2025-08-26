@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from themeforest.kreativdev.com/bookapp/demo/forgot-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 25 Aug 2025 15:31:00 GMT -->
+<head>
+    <%- include('./layout/head') %>
+</head>
+
+<body class="theme-color-1">
+    <!-- Preloader start -->
+    <div id="preLoader">
+        <div class="loader"></div>
+    </div>
+    <!-- Preloader end -->
+
+   <div class="authentication-area bg-light">
+        <div class="container">
+            <div class="row min-vh-100 align-items-center">
+                <div class="col-12">
+                    <div class="wrapper shadow-md radius-lg bg-white">
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-6 bg-primary-light">
+                                <div class="content">
+                                    <div class="logo mb-3 p-30">
+                                        <a href="index.html" target="_self" title="Teeno"><img src="/clients/assets/images/logo/logo-1.png" alt="Logo"></a>
+                                    </div>
+                                    <div class="svg-image">
+                                        <img class="lazyload" src="/clients/assets/images/login.svg"  alt="Image">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="main-form">
+                                    <a href="index.html" class="icon-link" title="Go back to home" target="_self"><i class="fal fa-home"></i></a>
+                                    <div class="title">
+                                        <h3 class="mb-30">Đăng nhập</h3>
+                                    </div>
+                                    <form action="/LoginClient" method="POST" enctype="multipart/form-data" id="#authForm">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group mb-20">
+                                                    <label for="userName2" class="form-label color-dark">Họ tên hoặc Email<span class="color-red">*</span></label>
+                                                    <input type="text" name="UserNameOrEmail" id="UserNameOrEmail" class="form-control" placeholder="Tên hoặc Email" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group mb-20">
+                                                    <label for="password" class="form-label color-dark">Mật khẩu<span class="color-red">*</span></label>
+                                                    <div class="position-relative">
+                                                        <input type="password" name="password" id="password" class="form-control" placeholder="Mật khẩu" required>
+                                                        <span class="show-password-field">
+                                                            <i class="show-icon"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="custom-checkbox mb-10 font-sm">
+                                                    <input class="input-checkbox" type="checkbox" name="checkbox" id="checkbox4" value="">
+                                                    <label class="form-check-label" for="checkbox4"><span> Tôi đồng ý với điều kiện với bookApp <a href="terms-conditions.html">Terms & Conditions</a></span></label>
+                                                </div>
+                                                <div class="custom-checkbox mb-10 font-sm">
+                                                    <input class="input-checkbox" type="checkbox" name="checkbox" id="checkbox5" value="">
+                                                    <label class="form-check-label" for="checkbox5"><span>Tôi muốn được thông báo về tin tức và mẹo mới nhất</span></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center mt-10 mb-15">
+                                            <button class="btn btn-lg btn-primary btn-gradient w-100" type="submit" aria-label="Login">Login</button>
+                                        </div>
+                                        <div class="d-flex justify-content-between flex-wrap gap-2">
+                                            <div class="link font-sm">
+                                                <a href="forgot-password.html" title="Forgot Password">Tôi quên mật khẩu</a>
+                                            </div>
+                                            <div class="link font-sm">
+                                                Tôi không có mật khẩu ?<a href="signup.html" title="Go Signup" target="_self"> Bấm ở đây</a> dến đăng ký
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add Review Modal End -->
+    <%- include('./layout/js') %>
+    
+</body>
+
+
+<!-- Mirrored from themeforest.kreativdev.com/bookapp/demo/forgot-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 25 Aug 2025 15:31:00 GMT -->
+</html>
