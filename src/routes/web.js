@@ -6,12 +6,12 @@ const Routers = express.Router();
 const AuthController = require('../controllers/AuthController');
 const HomeController = require('../controllers/homeController');
 
-//Model
+
 
 // Cấu hình lưu file
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '/public/image/'); // thư mục lưu file (không có "/")
+        cb(null, '/images'); // thư mục lưu file (không có "/")
     },
     filename: (req, file, cb) => {
         const filename = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -24,7 +24,7 @@ const upload = multer({
     storage: storage,
     fileFilter: (req, file, cb) => {
         // Chỉ cho phép file hình ảnh
-        if (file.mimetype.startsWith('/public/image/')) {
+        if (file.mimetype.startsWith('/image')) {
             cb(null, true);
         } else {
             cb(new Error("Only image files are allowed"), false);
@@ -37,6 +37,9 @@ Routers.get('/', HomeController.Home);
 
 Routers.get('/FormLogin', AuthController.FormLogin);
 Routers.post('/LoginClient', AuthController.LoginClient);
+
+Routers.get('/FormRegister', AuthController.FormRegister);
+Routers.post('/RegisterClient', AuthController.RegisterClient);
 
 
 Routers.post('/upload', upload.single('file'), (req, res) => {

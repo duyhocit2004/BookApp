@@ -38,58 +38,64 @@
                                     <div class="title">
                                         <h3 class="mb-30">Đăng nhập</h3>
                                     </div>
-                                     <% if (error) { %>
-                                            <p style="color:red;"><%= error %></p>
-                                    <% } %>
-                                    <form action="/LoginClient" method="post" enctype="application/x-www-form-urlencoded" id="authForm">
+                                    <form action="/RegisterClient" method="POST" enctype="application/x-www-form-urlencoded" id="authForm">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="form-group mb-20">
-                                                    <label for="userName2" class="form-label color-dark">Họ tên hoặc Email<span class="color-red">*</span></label>
-                                                    <input type="text" name="UserNameOrEmail" id="UserNameOrEmail" class="form-control" placeholder="Tên hoặc Email" >
-                                                    <p id="NotificationUserNameOrEmail">
-                                               
+                                                    <label for="userName2" class="form-label color-dark">Họ tên<span class="color-red">*</span></label>
+                                                    <div class="position-relative"></div>
+                                                         <input type="text" name="username" id="username" class="form-control" placeholder="Tên hoặc Email">
+                                                    </div>
+                                                    <p id="notificationUsername">
+
                                                     </p>
                                                 </div>
-                                                
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group mb-20">
+                                                    <label for="email" class="form-label color-dark">Email<span class="color-red">*</span></label>
+                                                    <div class="position-relative">
+                                                        <input type="email" name="email" id="email" class="form-control" placeholder="Mật khẩu">
+                                                    </div>
+                                                    <p id="notificationEmail">
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group mb-20">
+                                                    <label for="phone" class="form-label color-dark">Số điện thoại<span class="color-red">*</span></label>
+                                                    <div class="position-relative">
+                                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Mật khẩu" >
+                                                    </div>
+                                                    <p id="notificationPhone">
+
+                                                    </p>
+                                                </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group mb-20">
                                                     <label for="password" class="form-label color-dark">Mật khẩu<span class="color-red">*</span></label>
                                                     <div class="position-relative">
-                                                        <input type="password" name="password" id="password" class="form-control" placeholder="Mật khẩu">
+                                                        <input type="password" name="password" id="password" class="form-control" placeholder="Mật khẩu" >
                                                         <span class="show-password-field">
                                                             <i class="show-icon"></i>
                                                         </span>
-                                                        <p id="Notificationpassword"></p>
                                                     </div>
+                                                    <p id="notificationPassword">
+
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="custom-checkbox mb-10 font-sm">
-                                                    <input class="input-checkbox" type="checkbox" id="checkbox4" value="">
-                                                    <label class="form-check-label" for="checkbox4"><span> Tôi đồng ý với điều kiện với bookApp <a href="terms-conditions.html">Terms & Conditions</a></span></label>
-                                                    <p id="NotificationCheckbox4"></p>
-                                                </div>
-                                                <div class="custom-checkbox mb-10 font-sm">
-                                                    <input class="input-checkbox" type="checkbox" id="checkbox5" value="">
-                                                    <label class="form-check-label" for="checkbox5"><span>Tôi muốn được thông báo về tin tức và mẹo mới nhất</span></label>
-                                                    <p id="NotificationCheckbox5"></p>
-                                                </div>
-                                                
-                                            </div>
+                                            
+                                            
                                         </div>
                                         <div class="text-center mt-10 mb-15">
-                                            <button class="btn btn-lg btn-primary btn-gradient w-100" type="submit" >Đăng nhập</button>
+                                            <button class="btn btn-lg btn-primary btn-gradient w-100" type="submit" aria-label="Login">Đăng ký</button>
                                         </div>
-                                        <div class="d-flex justify-content-between flex-wrap gap-2">
-                                            <!-- <div class="link font-sm">
-                                                <a href="forgot-password.html" title="Forgot Password">Tôi quên mật khẩu</a>
-                                            </div> -->
-                                            <div class="link font-sm">
-                                                Tôi không có mật khẩu ?<a href="/FormRegister" title="Go Signup" target="_self"> Bấm ở đây</a> dến đăng ký
+                                        <div class="link font-sm">
+                                                Tôi Đã có tài khoản<a href="/FormLogin" title="Go Signup" target="_self"> Bấm ở đây</a> đến đăng nhập
                                             </div>
-                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -101,7 +107,7 @@
     </div>
     <!-- Add Review Modal End -->
     <%- include('./layout/js') %>
-    <script src="/FormLogin.js"></script>
+    <script  src="/FormRegister.js"></script>
 </body>
 
 

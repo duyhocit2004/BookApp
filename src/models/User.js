@@ -2,9 +2,9 @@ const { connectDatabase } = require('../config/db');
 const { DataTypes } = require('sequelize')
 
 
-exports.User = async () => {
+const User = async () => {
     const sequelize = await connectDatabase();
-    const user = sequelize.define('users', {
+    const user = await sequelize.define('users', {
         id: {
             primaryKey: true,
             autoIncrement: true,
@@ -15,6 +15,9 @@ exports.User = async () => {
         },
         email: {
             type: DataTypes.STRING(100),
+        },
+        phone: {
+            type: DataTypes.STRING(10),
         },
         password: {
             type: DataTypes.STRING(100),
@@ -40,9 +43,14 @@ exports.User = async () => {
             references: {
                 model: "role",
                 key: "id"
-            }
+            },
+            defaultValue : 1
         }
+    },{
+        tableName:"users"
     })
-    await sequelize.sync({ alter: true });
+    await user.sync();
     return user;
 }
+
+module.exports = {User}

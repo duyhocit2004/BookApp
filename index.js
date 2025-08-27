@@ -8,6 +8,7 @@ const Routers = require('./src/routes/web')
 const database = require('./src/config/db')
 
 app.use(express.static('./src/public'))
+app.use(express.static('./src/Resource/js'))
 
 app.set('view engine', 'ejs');
 app.set('views', './src/Resource/views')

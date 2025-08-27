@@ -1,5 +1,5 @@
 
 
 exports.Home = (req,res,next)=>{
-    res.render('home')
+    res.render('index')
 }
