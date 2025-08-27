@@ -15,3 +15,13 @@ exports.FormRegister =(req,res)=>{
 exports.RegisterClient = (req,res,next)=>{
     return AuthService.RegisterClient(req,res)
 }
+
+exports.FormLoginAdmin =(req,res)=>{
+    res.render('auth/LoginAdmin',{ error: null });
+}
+
+exports.LoginAdmin = (req,res,next)=>{
+    return AuthService.LoginAdmin(req,res)
+}
+
+
