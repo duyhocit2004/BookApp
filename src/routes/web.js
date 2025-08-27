@@ -3,16 +3,8 @@ const multer = require('multer');
 const Routers = express.Router();
 
 //Controller
-<<<<<<< Updated upstream
-const productController = require('../controllers/productController');
-
-//Model
-=======
-const AuthController = require('../controllers/AuthController');
-const HomeController = require('../controllers/homeController');
 const AdminController = require('../controllers/adminController')
 const authMiddleware = require('../middlewares/auth');
->>>>>>> Stashed changes
 
 // Cấu hình lưu file
 const storage = multer.diskStorage({
