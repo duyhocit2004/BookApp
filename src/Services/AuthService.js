@@ -198,3 +198,49 @@ exports.ResetPasswordUser = async (req, res) => {
 
 
 
+exports.LoginAdmin = async (req, res) => {
+     try {
+        let find = null;
+        const connect = await User();
+        // lưu thông tin nhập
+        const { UserNameOrEmail, password } = req.body;
+
+        // xác nhận tài khoản name || email
+        if (validator.isEmail(UserNameOrEmail)) {
+
+            find = await connect.findOne({ where: { email: UserNameOrEmail } })
+
+        } else {
+
+            find = await connect.findOne({ where: { username: UserNameOrEmail } })
+
+        }
+
+
+        if (!find) return res.render('auth/loginAdmin', { error: "Tài khoản không tồn tại" })
+        console.log(find);
+        const math = await bcrypt.compare(password, find.password);
+
+        if (!math) return res.render('auth/loginAmin', { error: "Tài khoản hoặc mật khẩu không đúng" })
+
+        // tạo JWT nếu người dùng đăng nhập thành công
+        const accessToken = JWT.sign(
+            { "username": find.username, "id": find.id },
+            process.env.ACCESS_TOKEN_SECRET,
+            { expiresIn: "2h" }
+        )
+
+        // gửi token len cookie
+        res.cookie('accessToken', accessToken, {
+            httpOnly: true,
+            secure: false,
+            maxAge: 2 * 60 * 60 * 1000
+        })
+
+        res.redirect('/');
+    } catch (error) {
+        console.log("Lỗi" + error)
+        res.redirect('/FormLoginAdmin')
+    }
+};
+

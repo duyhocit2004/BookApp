@@ -3,10 +3,10 @@ const multer = require('multer');
 const Routers = express.Router();
 
 //Controller
-const AuthController = require('../controllers/AuthController');
-const HomeController = require('../controllers/homeController');
-
-
+const HomeController = require('../controllers/homeController')
+const AuthController = require('../controllers/authController')
+const AdminController = require('../controllers/adminController')
+const authMiddleware = require('../middlewares/auth');
 
 // Cấu hình lưu file
 const storage = multer.diskStorage({
@@ -49,6 +49,13 @@ Routers.post('/confirmtToken',AuthController.confirmtToken);
 
 Routers.get('/FormResetPassword',AuthController.FormResetPassword);
 Routers.post('/ResetPasswordUser',AuthController.ResetPasswordUser);
+Routers.get('/FormLoginAdmin', AuthController.FormLoginAdmin);
+Routers.post('/LoginAdmin', AuthController.LoginAdmin);
+
+// Middleware trang d
+Routers.get('/admin', authMiddleware, (req, res) => {
+    router.render('admin'); 
+});
 
 Routers.post('/upload', upload.single('file'), (req, res) => {
     res.json({ message: 'File uploaded successfully', file: req.file });

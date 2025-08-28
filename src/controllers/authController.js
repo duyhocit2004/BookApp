@@ -39,3 +39,12 @@ exports.FormResetPassword = (req,res)=>{
 exports.ResetPasswordUser = (req,res)=>{
     return AuthService.ResetPasswordUser(req,res)
 }
+exports.FormLoginAdmin =(req,res)=>{
+    res.render('auth/LoginAdmin',{ error: null });
+}
+
+exports.LoginAdmin = (req,res,next)=>{
+    return AuthService.LoginAdmin(req,res)
+}
+
+
