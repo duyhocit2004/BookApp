@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
+require('dotenv').config
 
 const Routers = require('./src/routes/web')
 
@@ -17,6 +19,13 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.use(cookieParser());
+
+app.use(session({
+    secret: process.env.ACCESS_TOKEN_SESSION,
+    resave:false,// không lưu lại session nếu không thay đổi
+    saveUninitialized:true, //lưu session mới ngay cả khi chưa có dữ liệu
+    cookie:{maxAge: 1000 * 60 * 15} // lưu 15p
+}))
 
 app.use('/', Routers);
 

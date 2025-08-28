@@ -49,7 +49,7 @@ const User = async () => {
     },{
         tableName:"users"
     })
-    await user.sync();
+    await user.sync({alter :true});
     return user;
 }
 

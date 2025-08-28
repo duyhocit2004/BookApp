@@ -41,6 +41,14 @@ Routers.post('/LoginClient', AuthController.LoginClient);
 Routers.get('/FormRegister', AuthController.FormRegister);
 Routers.post('/RegisterClient', AuthController.RegisterClient);
 
+Routers.get('/ForgotPassword',AuthController.ForgotPassword);
+Routers.post('/sendForgetpassword',AuthController.sendForgetpassword);
+
+Routers.get('/GetFormToken',AuthController.GetFormToken);
+Routers.post('/confirmtToken',AuthController.confirmtToken);
+
+Routers.get('/FormResetPassword',AuthController.FormResetPassword);
+Routers.post('/ResetPasswordUser',AuthController.ResetPasswordUser);
 
 Routers.post('/upload', upload.single('file'), (req, res) => {
     res.json({ message: 'File uploaded successfully', file: req.file });

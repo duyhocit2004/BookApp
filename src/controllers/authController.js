@@ -15,3 +15,27 @@ exports.FormRegister =(req,res)=>{
 exports.RegisterClient = (req,res,next)=>{
     return AuthService.RegisterClient(req,res)
 }
+
+exports.ForgotPassword =(req,res,next)=>{
+    res.render('auth/forgotPassword')
+}
+
+exports.sendForgetpassword = (req,res)=>{
+    return AuthService.sendForgetpassword(req,res)
+}
+
+exports.GetFormToken = (req,res)=>{
+    res.render('auth/tokenPassword')
+}
+
+exports.confirmtToken = (req,res)=>{
+    return AuthService.confirmtToken(req,res)
+}
+
+exports.FormResetPassword = (req,res)=>{
+    res.render('auth/ResetPassword')
+}
+
+exports.ResetPasswordUser = (req,res)=>{
+    return AuthService.ResetPasswordUser(req,res)
+}
