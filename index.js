@@ -5,8 +5,10 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 require('dotenv').config
 
-const Routers = require('./src/routes/web')
+const authMiddleware = require('./src/middlewares/auth');
 
+const Routers = require('./src/routes/web')
+const RouterAdmin = require('./src/routes/admin')
 const database = require('./src/config/db')
 
 app.use(express.static('./src/public'))
@@ -28,7 +30,7 @@ app.use(session({
 }))
 
 app.use('/', Routers);
-
+app.use('/admin',authMiddleware,RouterAdmin);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

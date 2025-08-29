@@ -3,9 +3,7 @@ const multer = require('multer');
 const Routers = express.Router();
 
 //Controller
-const HomeController = require('../controllers/homeController')
-const AuthController = require('../controllers/authController')
-
+const AdminController = require('../controllers/adminController')
 
 
 // Cấu hình lưu file
@@ -33,24 +31,8 @@ const upload = multer({
 });
 
 
-Routers.get('/', HomeController.Home);
 
-Routers.get('/FormLogin', AuthController.FormLogin);
-Routers.post('/LoginClient', AuthController.LoginClient);
-
-Routers.get('/FormRegister', AuthController.FormRegister);
-Routers.post('/RegisterClient', AuthController.RegisterClient);
-
-Routers.get('/ForgotPassword',AuthController.ForgotPassword);
-Routers.post('/sendForgetpassword',AuthController.sendForgetpassword);
-
-Routers.get('/GetFormToken',AuthController.GetFormToken);
-Routers.post('/confirmtToken',AuthController.confirmtToken);
-
-Routers.get('/FormResetPassword',AuthController.FormResetPassword);
-Routers.post('/ResetPasswordUser',AuthController.ResetPasswordUser);
-Routers.get('/FormLoginAdmin', AuthController.FormLoginAdmin);
-Routers.post('/LoginAdmin', AuthController.LoginAdmin);
+Routers.get("/",AdminController.Admin);
 
 
 Routers.post('/upload', upload.single('file'), (req, res) => {

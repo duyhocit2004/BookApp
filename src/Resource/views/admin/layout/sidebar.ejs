@@ -1,0 +1,968 @@
+ <div class="side-menu__content z-20 relative w-[320px] duration-200 transition-[width] group-[.side-menu--collapsed]:xl:w-[165px] group-[.side-menu--collapsed.side-menu--on-hover]:xl:w-[320px] h-screen flex flex-col-reverse xl:flex-col before:absolute before:inset-y-0 before:w-px before:mt-23 before:bg-foreground/[.11] dark:before:bg-foreground/10 before:right-0 before:mr-8 before:hidden xl:before:block">
+                <div class="relative z-10 mt-3 hidden h-[90px] w-[320px] flex-none items-center overflow-hidden pl-8 pr-14 duration-200 xl:flex group-[.side-menu--collapsed.side-menu--on-hover]:xl:w-[320px] group-[.side-menu--collapsed]:xl:w-[165px]">
+                    <a class="relative flex items-center transition-[margin] duration-200 xl:ml-1.5 group-[.side-menu--collapsed.side-menu--on-hover]:xl:ml-1.5 group-[.side-menu--collapsed]:xl:ml-8" href="#">
+                        <img class="size-5" src="/clients/dist/images/logo.svg">
+                        <div class="dark:text-foreground text-background ml-3.5 text-nowrap transition-opacity group-[.side-menu--collapsed.side-menu--on-hover]:xl:opacity-100 group-[.side-menu--collapsed]:xl:opacity-0">
+                            <span class="text-base font-medium">Midone</span>
+                            <span class="text-base font-light">Enigma</span>
+                        </div>
+                    </a>
+                    <a class="toggle-compact-menu text-background dark:text-foreground border-background/20 bg-background/10 dark:bg-foreground/[.02] dark:border-foreground/[.11] relative ml-auto hidden items-center justify-center rounded-md border py-0.5 pl-0.5 pr-1 opacity-70 transition-[opacity,transform] hover:opacity-100 group-[.side-menu--collapsed]:xl:rotate-180 group-[.side-menu--collapsed.side-menu--on-hover]:xl:opacity-100 group-[.side-menu--collapsed]:xl:opacity-0 2xl:flex" href="#">
+                        <i data-lucide="chevron-left" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
+                    </a>
+                </div>
+                <div class="side-menu__account group/profile relative transition-[width] xl:mb-2 xl:mr-8">
+                    <div class="border-foreground/[.11] dark:border-foreground/[.11] flex cursor-pointer items-center justify-center border-t py-3 pl-6 pr-5 opacity-90 transition hover:opacity-100 xl:border-b xl:border-t-0 xl:pb-6 xl:pl-8 xl:pt-2.5">
+                        <div class="border-background/70 dark:border-foreground/20 relative h-11 w-11 flex-none overflow-hidden rounded-full border-4 shadow-sm">
+                            <img class="absolute top-0 h-full w-full object-cover" src="dist/images/fakers/profile-10.jpg" alt="Midone - Admin Dashboard Template">
+                        </div>
+                        <div class="ms-3 flex w-full items-center overflow-hidden transition-opacity group-[.side-menu--collapsed.side-menu--on-hover]:ms-3 group-[.side-menu--collapsed.side-menu--on-hover]:w-full group-[.side-menu--collapsed.side-menu--on-hover]:opacity-100 xl:group-[.side-menu--collapsed]:ms-0 xl:group-[.side-menu--collapsed]:w-0 xl:group-[.side-menu--collapsed]:opacity-0">
+                            <div class="text-primary dark:text-foreground w-28">
+                                <div class="w-full truncate font-medium">Denzel Washington
+                                </div>
+                                <div class="mt-0.5 w-full truncate text-xs opacity-60">Administrator</div>
+                            </div>
+                            <i data-lucide="move-right" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 me-4 ms-auto opacity-50"></i>
+                        </div>
+                    </div>
+                    <div class="hidden group-hover/profile:block">
+                        <div class="box p-5 before:absolute before:inset-0 before:mx-3 before:-mb-3 before:border before:border-foreground/10 before:bg-background/30 before:z-[-1] after:absolute after:inset-0 after:border after:border-foreground/10 after:bg-background after:shadow-[0px_3px_5px_#0000000b] after:z-[-1] after:backdrop-blur-md text-foreground before:shadow-foreground/5 absolute bottom-0 left-[100%] z-50 ml-2 flex w-64 flex-col gap-2.5 px-6 py-5 before:rounded-2xl before:shadow-xl before:backdrop-blur after:rounded-2xl xl:bottom-auto xl:top-0">
+                            <div class="flex flex-col gap-0.5">
+                                <div class="font-medium">Denzel Washington</div>
+                                <div class="mt-0.5 text-xs opacity-70">Frontend Engineer</div>
+                            </div>
+                            <div class="bg-foreground/5 h-px"></div>
+                            <div class="flex flex-col gap-0.5">
+                                <a class="hover:bg-foreground/5 -mx-3 flex gap-2.5 rounded-lg px-4 py-1.5" href="#">
+                                    <i data-lucide="users" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
+                                    Profile
+                                </a>
+                                <a class="hover:bg-foreground/5 -mx-3 flex gap-2.5 rounded-lg px-4 py-1.5" href="#">
+                                    <i data-lucide="shield-alert" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
+                                    Add Account
+                                </a>
+                                <a class="hover:bg-foreground/5 -mx-3 flex gap-2.5 rounded-lg px-4 py-1.5" href="#">
+                                    <i data-lucide="file-lock" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
+                                    Reset Password
+                                </a>
+                                <a class="hover:bg-foreground/5 -mx-3 flex gap-2.5 rounded-lg px-4 py-1.5" href="#">
+                                    <i data-lucide="file-question" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
+                                    Help
+                                </a>
+                            </div>
+                            <div class="bg-foreground/5 h-px"></div>
+                            <div class="flex flex-col gap-0.5">
+                                <a class="hover:bg-foreground/5 -mx-3 flex gap-2.5 rounded-lg px-4 py-1.5" href="#">
+                                    <i data-lucide="power" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full h-full z-20 pl-4 xl:pl-7 pr-4 xl:pr-14 overflow-y-auto overflow-x-hidden pb-3 [&:-webkit-scrollbar]:w-0 scroll-smooth [&_.simplebar-scrollbar]:before:!bg-foreground/20 xl:[&_.simplebar-track.simplebar-vertical]:mr-9 [-webkit-mask-image:_linear-gradient(to_top,_rgba(0,_0,_0,_0),_black_30px),_linear-gradient(to_bottom,_rgba(0,_0,_0,_0),_black_30px)] [-webkit-mask-composite:_destination-in]" s="">
+                    <ul class="scrollable">
+                        <!-- BEGIN: First Child -->
+                        <li class="side-menu__group-label">
+                            Báo cáo chung
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="javascript:;" class="side-menu__link side-menu__link--active">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Thông kê</div>
+                                <div class="side-menu__link__badge">
+                                   1
+                                </div>
+                                <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <ul class="block">
+                                <li>
+                                    <a href="enigma-side-menu-dashboard-overview-3.html" class="side-menu__link ">
+                                        <i data-lucide="square-activity" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Biểu đồ thống kê
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                            </ul>
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="javascript:;" class="side-menu__link ">
+                                <i data-lucide="square-kanban" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Thao tác</div>
+                                <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <ul class="hidden">
+                                <li>
+                                    <a href="javascript:;" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Tài khoản
+                                        </div>
+                                        <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <ul class="hidden">
+                                        <li>
+                                            <a href="enigma-side-menu-product-list.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Người dùng
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-product-grid.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Người Bán
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Transactions
+                                        </div>
+                                        <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <ul class="hidden">
+                                        <li>
+                                            <a href="enigma-side-menu-transaction-list.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Transaction List
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-transaction-detail.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Transaction Detail
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Sellers
+                                        </div>
+                                        <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <ul class="hidden">
+                                        <li>
+                                            <a href="enigma-side-menu-seller-list.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Seller List
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-seller-detail.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Seller Detail
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-reviews.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Reviews
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                            </ul>
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li class="side-menu__group-label">
+                            APPS
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="enigma-side-menu-inbox.html" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Inbox</div>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="enigma-side-menu-file-manager.html" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">File Manager</div>
+                                <div class="side-menu__link__badge">
+                                    5
+                                </div>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="enigma-side-menu-point-of-sale.html" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Point of Sale</div>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="enigma-side-menu-chat.html" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Chat</div>
+                                <div class="side-menu__link__badge">
+                                    3
+                                </div>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="enigma-side-menu-post.html" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Post</div>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="enigma-side-menu-calendar.html" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Calendar</div>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li class="side-menu__group-label">
+                            PAGES
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="javascript:;" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Crud</div>
+                                <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <ul class="hidden">
+                                <li>
+                                    <a href="enigma-side-menu-crud-data-list.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Data List
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-crud-form.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Form
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                            </ul>
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="javascript:;" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Users</div>
+                                <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <ul class="hidden">
+                                <li>
+                                    <a href="enigma-side-menu-users-layout-1.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Layout 1
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-users-layout-2.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Layout 2
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-users-layout-3.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Layout 3
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                            </ul>
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="javascript:;" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Profile</div>
+                                <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <ul class="hidden">
+                                <li>
+                                    <a href="enigma-side-menu-profile-overview-1.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Overview 1
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-profile-overview-2.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Overview 2
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-profile-overview-3.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Overview 3
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                            </ul>
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="javascript:;" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Pages</div>
+                                <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <ul class="hidden">
+                                <li>
+                                    <a href="javascript:;" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Wizards
+                                        </div>
+                                        <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <ul class="hidden">
+                                        <li>
+                                            <a href="enigma-side-menu-wizard-layout-1.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 1
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-wizard-layout-2.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 2
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-wizard-layout-3.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 3
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Blog
+                                        </div>
+                                        <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <ul class="hidden">
+                                        <li>
+                                            <a href="enigma-side-menu-blog-layout-1.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 1
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-blog-layout-2.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 2
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-blog-layout-3.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 3
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Pricing
+                                        </div>
+                                        <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <ul class="hidden">
+                                        <li>
+                                            <a href="enigma-side-menu-pricing-layout-1.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 1
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-pricing-layout-2.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 2
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Invoice
+                                        </div>
+                                        <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <ul class="hidden">
+                                        <li>
+                                            <a href="enigma-side-menu-invoice-layout-1.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 1
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-invoice-layout-2.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 2
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            FAQ
+                                        </div>
+                                        <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <ul class="hidden">
+                                        <li>
+                                            <a href="enigma-side-menu-faq-layout-1.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 1
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-faq-layout-2.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 2
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-faq-layout-3.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Layout 3
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-login.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Login
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-register.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Register
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-error-page.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Error Page
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-update-profile.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Update profile
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-change-password.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Change Password
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                            </ul>
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li class="side-menu__group-label">
+                            UI COMPONENTS
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="javascript:;" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Components</div>
+                                <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <ul class="hidden">
+                                <li>
+                                    <a href="javascript:;" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Grid
+                                        </div>
+                                        <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <ul class="hidden">
+                                        <li>
+                                            <a href="enigma-side-menu-regular-table.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Regular Table
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-tabulator.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Tabulator
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Overlay
+                                        </div>
+                                        <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <ul class="hidden">
+                                        <li>
+                                            <a href="enigma-side-menu-dialog.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Dialog
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-sheet.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Sheet
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-toast.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    Toast
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-tabs.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Tabs
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-accordion.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Accordion
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-button.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Button
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-alert.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Alert
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-progress.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Progress
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-tooltip.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Tooltip
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-dropdown-menu.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Dropdown Menu
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-typography.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Typography
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-icon.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Icon
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                            </ul>
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="javascript:;" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Forms</div>
+                                <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <ul class="hidden">
+                                <li>
+                                    <a href="enigma-side-menu-regular-form.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Regular Form
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-easepick.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Easepick
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-tom-select.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Tom Select
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-dropzone.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Dropzone
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Wysiwyg Editor
+                                        </div>
+                                        <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <ul class="hidden">
+                                        <li>
+                                            <a href="enigma-side-menu-ckeditor-classic.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    CKEditor Classic
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-ckeditor-inline.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    CKEditor Inline
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-ckeditor-balloon.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    CKEditor Balloon
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-ckeditor-balloon-block.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    CKEditor Balloon Block
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="enigma-side-menu-ckeditor-document.html" class="side-menu__link ">
+                                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                                <div class="side-menu__link__title">
+                                                    CKEditor Document
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-form-validation.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Form Validation
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                            </ul>
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                        <!-- BEGIN: First Child -->
+                        <li>
+                            <a href="javascript:;" class="side-menu__link ">
+                                <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                <div class="side-menu__link__title">Widgets</div>
+                                <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
+                            </a>
+                            <!-- BEGIN: Second Child -->
+                            <ul class="hidden">
+                                <li>
+                                    <a href="enigma-side-menu-chart.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Chart
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-slider.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Slider
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                                <li>
+                                    <a href="enigma-side-menu-image-zoom.html" class="side-menu__link ">
+                                        <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
+                                        <div class="side-menu__link__title">
+                                            Image Zoom
+                                        </div>
+                                    </a>
+                                    <!-- BEGIN: Third Child -->
+                                    <!-- END: Third Child -->
+                                </li>
+                            </ul>
+                            <!-- END: Second Child -->
+                        </li>
+                        <!-- END: First Child -->
+                    </ul>
+                </div>
+            </div>

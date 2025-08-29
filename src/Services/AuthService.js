@@ -85,7 +85,9 @@ exports.sendForgetpassword = async (req, res) => {
         let connect = await User();
 
         const  email  = req.body.email;
-        console.log(email);
+
+        console.log(req.body);
+
         const find = await connect.findOne({ where: { email: email,role_id : 1 } });
 
         
@@ -208,36 +210,34 @@ exports.LoginAdmin = async (req, res) => {
         // xác nhận tài khoản name || email
         if (validator.isEmail(UserNameOrEmail)) {
 
-            find = await connect.findOne({ where: { email: UserNameOrEmail } })
-
-        } else {
-
-            find = await connect.findOne({ where: { username: UserNameOrEmail } })
+            find = await connect.findOne({ where: { email: UserNameOrEmail,role_id : 3 } })
 
         }
 
 
         if (!find) return res.render('auth/loginAdmin', { error: "Tài khoản không tồn tại" })
         console.log(find);
+
         const math = await bcrypt.compare(password, find.password);
 
-        if (!math) return res.render('auth/loginAmin', { error: "Tài khoản hoặc mật khẩu không đúng" })
+        if (!math) return res.render('auth/loginAdmin', { error: "Tài khoản hoặc mật khẩu không đúng" })
 
         // tạo JWT nếu người dùng đăng nhập thành công
         const accessToken = JWT.sign(
-            { "username": find.username, "id": find.id },
+            { "username": find.username, "id": find.id,'role_id':find.role_id },
             process.env.ACCESS_TOKEN_SECRET,
             { expiresIn: "2h" }
         )
 
+        
         // gửi token len cookie
         res.cookie('accessToken', accessToken, {
             httpOnly: true,
             secure: false,
             maxAge: 2 * 60 * 60 * 1000
         })
-
-        res.redirect('/');
+        
+        res.redirect('/admin/');
     } catch (error) {
         console.log("Lỗi" + error)
         res.redirect('/FormLoginAdmin')
