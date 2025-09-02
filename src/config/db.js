@@ -9,7 +9,7 @@ const connectDatabase = async () => {
     })
 
     try {
-        await sequelize.authenticate()
+        // await sequelize.authenticate()
         console.log("kết nối thành công");
         return sequelize;
     } catch (error) {

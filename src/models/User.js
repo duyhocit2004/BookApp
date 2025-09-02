@@ -1,10 +1,10 @@
 const { connectDatabase } = require('../config/db');
 const { DataTypes } = require('sequelize')
-
+const {role} = require('./Role');
 
 const User = async () => {
     const sequelize = await connectDatabase();
-    const user = await sequelize.define('users', {
+    let user = await sequelize.define('users', {
         id: {
             primaryKey: true,
             autoIncrement: true,
@@ -45,10 +45,27 @@ const User = async () => {
                 key: "id"
             },
             defaultValue : 1
+        },
+        status:{
+            type: DataTypes.STRING(100),
+            allowNull :true,
+            defaultValue : "active"
+            
+        },
+        image:{
+            type: DataTypes.STRING(100),
+            allowNull :true,
+            defaultValue : "/avatar_default.jpg"
         }
     },{
         tableName:"users"
     })
+
+    const Role = await role();
+
+    user.belongsTo(Role,{foreignKey:"role_id",as:'role'});
+    Role.hasMany(user,{foreignKey:"role_id",as:'users'})
+
     await user.sync({alter :true});
     return user;
 }

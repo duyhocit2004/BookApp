@@ -1,0 +1,199 @@
+<%- include('../layout/head.ejs')%>
+
+    <body>
+        <div
+            class="page-loader bg-background fixed inset-0 z-[100] flex items-center justify-center transition-opacity">
+            <div class="loader-spinner !w-14"></div>
+        </div>
+        <div
+            class="enigma min-h-screen bg-[color-mix(in_oklch,_var(--color-background),_var(--color-foreground)_3%)] dark:bg-background before:bg-noise dark:before:bg-foreground/[.01] before:fixed before:inset-0 before:opacity-20 after:bg-accent after:bg-contain after:fixed after:inset-0 after:blur-xl after:opacity-[.25]">
+            <div
+                class="side-menu xl:ml-0 transition-[margin] duration-200 fixed top-0 left-0 z-50 group before:content-[''] before:fixed before:inset-0 before:bg-black/80 dark:before:bg-foreground/5 before:backdrop-blur before:xl:hidden after:content-[''] after:absolute after:inset-0 after:bg-background after:xl:hidden [&.side-menu--mobile-menu-open]:ml-0 [&.side-menu--mobile-menu-open]:before:block -ml-[320px] before:hidden">
+                <div
+                    class="close-mobile-menu fixed ml-[320px] xl:hidden z-50 cursor-pointer text-background dark:text-foreground [&.close-mobile-menu--mobile-menu-open]:block hidden">
+                    <div class="ml-5 mt-5 flex size-10 items-center justify-center">
+                        <i data-lucide="x"
+                            class="[--color:currentColor] stroke-(--color) fill-(--color)/25 size-7 stroke-1"></i>
+                    </div>
+                </div>
+                <!-- sidebar-Start -->
+                <%- include('../layout/sidebar.ejs') %>
+                    <!-- sidebar-End -->
+            </div>
+            <div
+                class="content h-screen transition-[margin,width] duration-200 pt-32 pb-8 px-7 z-10 relative group before:absolute before:bottom-4 before:top-27 before:-ml-px before:right-4 before:opacity-[.07] before:left-4 xl:before:left-0 before:bg-foreground before:rounded-4xl after:absolute after:bottom-4 after:top-27 after:-ml-px after:right-4 after:left-4 xl:after:left-0 after:bg-[color-mix(in_oklch,_var(--color-background),_var(--color-foreground)_2%)] after:rounded-4xl after:border after:border-foreground/[.15] dark:after:opacity-[.59] xl:ml-[320px] [&.content--compact]:xl:ml-[165px]">
+                <div
+                    class="relative h-full [--color-nav-foreground:var(--color-background)] dark:[--color-nav-foreground:var(--color-foreground)]">
+                    <div class="h-full overflow-x-hidden">
+                        <div
+                            class="content__scroll-area relative z-20 -mr-7 h-full overflow-y-auto pl-4 pr-11 transition-[margin] duration-200 xl:pl-0">
+                            <!-- Menu-Start -->
+                            <%- include('../layout/menu.ejs') %>
+                                <!-- Menu_end -->
+                                <div class="-mt-5" id="mt">
+                            <h2 class="mt-10 text-lg font-medium">Danh sách người dùng</h2>
+                            <div class="mt-5 grid grid-cols-12 gap-x-6 gap-y-8">
+                                <div class="col-span-12 mt-2 flex flex-wrap items-center sm:flex-nowrap">
+
+                                    <div data-tw-placement="bottom-end" class="dropdown">
+                                        <button class="[--color:var(--color-foreground)] border items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-(--color) hover:bg-(--color)/5 bg-background border-(--color)/20 h-10 py-2 dropdown-toggle inline-flex cursor-pointer relative z-[51] box px-2" data-tw-toggle="dropdown">
+                                            <span class="flex size-5 items-center justify-center">
+                                                <i data-lucide="plus" class="stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 size-4"></i>
+                                            </span>
+                                        </button>
+                                        <div class="box before:absolute before:inset-0 before:mx-3 before:-mb-3 before:border before:border-foreground/10 before:bg-background/30 before:shadow-[0px_3px_5px_#0000000b] before:z-[-1] before:rounded-xl after:absolute after:inset-0 after:border after:border-foreground/10 after:bg-background after:shadow-[0px_3px_5px_#0000000b] after:rounded-xl after:z-[-1] after:backdrop-blur-md dropdown-menu invisible absolute z-50 p-1 opacity-0 before:backdrop-blur-xl [&.show]:visible [&.show]:opacity-100">
+                                            <div class="dropdown-content w-40">
+                                                <a class="relative flex cursor-default select-none hover:bg-foreground/5 items-center rounded-lg px-2 py-1.5 outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
+                                                    <i data-lucide="users" class="stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 mr-2 size-4"></i>
+                                                    Thêm nhóm
+                                                </a>
+                                                <a class="relative flex cursor-default select-none hover:bg-foreground/5 items-center rounded-lg px-2 py-1.5 outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
+                                                    <i data-lucide="message-circle" class="stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 mr-2 size-4"></i>
+                                                    Nhắn tin
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mx-auto hidden opacity-70 md:block">
+                                       
+                                    </div>
+                                    <div class="mt-3 w-full sm:ml-auto sm:mt-0 sm:w-auto md:ml-0">
+                                        <div class="relative w-56">
+                                            <input class="h-10 rounded-md border bg-background px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-foreground/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/5 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 box w-56 pr-10" type="text" placeholder="Search...">
+                                            <i data-lucide="search" class="stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 absolute inset-y-0 right-0 my-auto mr-3 size-4 opacity-70"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- BEGIN: Users Layout -->
+                                <% UserBusiness.forEach((e)=>{ %>
+                                <div class="col-span-12 md:col-span-6">
+                                    <div class="box relative p-5 before:absolute before:inset-0 before:mx-3 before:-mb-3 before:border before:border-foreground/10 before:bg-background/30 before:shadow-[0px_3px_5px_#0000000b] before:z-[-1] before:rounded-xl after:absolute after:inset-0 after:border after:border-foreground/10 after:bg-background after:shadow-[0px_3px_5px_#0000000b] after:rounded-xl after:z-[-1] after:backdrop-blur-md">
+                                        <div class="flex flex-col items-center lg:flex-row">
+                                            <span data-content="Uploaded at 1 July 2021" class="tooltip border-(--color)/5 block relative flex-none overflow-hidden rounded-full border-3 ring-1 ring-(--color)/25 [--color:var(--color-primary)] size-24 lg:mr-1 lg:size-12">
+                                                <img class="absolute top-0 size-full object-cover" src="<%= e.image %>" alt="Midone - Tailwind Admin Dashboard Template">
+                                            </span>
+                                            <div class="mt-3 text-center lg:ml-2 lg:mr-auto lg:mt-0 lg:text-left">
+                                                <a class="font-medium" href="#">
+                                                    <!-- Russell Crowe -->
+                                                    <%= e.username %>
+                                                </a>
+                                                <div class="mt-0.5 text-xs opacity-70">
+                                                    <%= e.role_id === 1 ? "Người dùng" : "Doanh nghiệp" %>
+                                                </div>
+                                            </div>
+                                            <div class="mt-4 flex lg:mt-0">
+                                                <button id="ViewProfile" data-id="<%= e.id %>" class="[--color:var(--color-foreground)] cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-(--color) hover:bg-(--color)/5 bg-background border-(--color)/20 h-9 rounded-md px-3 mr-2">
+                                                    View Profile
+                                                </button>
+                                                <button data_id="<%= e.id %>" class="cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-(--color)/20 border-(--color)/60 text-(--color) hover:bg-(--color)/5 [--color:var(--color-primary)] h-9 rounded-md px-3">
+                                                    Message
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }) %>
+
+
+                                <!-- BEGIN: Users Layout -->
+                                <!-- BEGIN: Pagination -->
+                                                <div
+                                                    class="col-span-12 flex flex-wrap items-center sm:flex-row sm:flex-nowrap">
+                                                    <nav class="w-full sm:mr-auto sm:w-auto">
+                                                        <ul class="mr-0 flex w-full gap-1 sm:mr-auto sm:w-auto">
+
+                                                            <% if(currentPage < 1 ){ %>   
+                                                            <li class="flex-1 sm:flex-initial">
+                                                                <a href="/admin/AccountUser?page=<%=currentPage-1%>&search=<%= search || ''%>"
+                                                                    class="[--color:var(--color-foreground)] cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-(--color) hover:bg-(--color)/5 h-10 px-4 py-2 border-transparent bg-transparent">
+                                                                    <i data-lucide="chevron-left"
+                                                                        class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
+                                                                </a>
+                                                            </li>
+                                                            <%}else{%>
+                                                             <li class="flex-1 sm:flex-initial">
+                                                                <a 
+                                                                    class="[--color:var(--color-foreground)] cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-(--color) hover:bg-(--color)/5 h-10 px-4 py-2 border-transparent bg-transparent">
+                                                                    <i data-lucide="chevron-left"
+                                                                        class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
+                                                                </a>
+                                                            </li>
+                                                            <%}%>
+
+                                                            <% if(currentPage < 1 ){%>
+                                                            <li class="flex-1 sm:flex-initial">
+                                                                <a
+                                                                    class="[--color:var(--color-foreground)] cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-(--color) hover:bg-(--color)/5 h-10 px-4 py-2 border-transparent bg-transparent">
+                                                                    0
+                                                                </a>
+                                                            </li>
+                                                            <% }else{ %>
+                                                             <li class="flex-1 sm:flex-initial">
+                                                                <a href="/admin/AccountUser?page=<%=currentPage-1%>&search=<%= search || ''%>"
+                                                                    class="[--color:var(--color-foreground)] cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-(--color) hover:bg-(--color)/5 h-10 px-4 py-2 border-transparent bg-transparent">
+                                                                    <%= currentPage -1 %>
+                                                                </a>
+                                                            </li>
+                                                            <%}%>
+
+                                                            <li class="flex-1 sm:flex-initial">
+                                                                <a href="/admin/AccountUser?page=<%=currentPage%>&search=<%= search || ''%>"
+                                                                    class="[--color:var(--color-foreground)] cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-(--color) hover:bg-(--color)/5 bg-background h-10 px-4 py-2 box rounded-xl border-inherit">
+                                                                    <%= currentPage %>
+                                                                </a>
+                                                            </li>
+
+                                                            <% if(currentPage > totalPages ){ %>
+                                                            <li class="flex-1 sm:flex-initial">
+                                                                <a 
+                                                                    class="[--color:var(--color-foreground)] cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-(--color) hover:bg-(--color)/5 h-10 px-4 py-2 border-transparent bg-transparent">
+                                                                    <%= currentPage %>
+                                                                </a>
+                                                            </li>
+                                                            <%}else{ %>
+                                                                <li class="flex-1 sm:flex-initial">
+                                                                    <a href="/admin/AccountUser?page=<%=currentPage+1%>&search=<%= search || ''%>"
+                                                                        class="[--color:var(--color-foreground)] cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-(--color) hover:bg-(--color)/5 h-10 px-4 py-2 border-transparent bg-transparent">
+                                                                        <%= currentPage+1 %>
+                                                                    </a>
+                                                                </li>
+                                                            <%}%>
+
+                                                            <% if(currentPage < totalPages ){ %>
+                                                                <li class="flex-1 sm:flex-initial">
+                                                                <a
+                                                                    class="[--color:var(--color-foreground)] cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-(--color) hover:bg-(--color)/5 h-10 px-4 py-2 border-transparent bg-transparent">
+                                                                    <i data-lucide="chevron-right"
+                                                                        class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
+                                                                </a>
+                                                            </li>
+                                                            <%}else{ %> 
+                                                                <li class="flex-1 sm:flex-initial">
+                                                                    <a href="/admin/AccountUser?page=<%=currentPage+1%>&search=<%= search || ''%>"
+                                                                        class="[--color:var(--color-foreground)] cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-(--color) hover:bg-(--color)/5 h-10 px-4 py-2 border-transparent bg-transparent">
+                                                                        <i data-lucide="chevron-right"
+                                                                            class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
+                                                                    </a>
+                                                                </li>
+                                                            <%}%>
+                                                           
+
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                <!-- END: Pagination -->
+                            </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../layout/js.ejs')%>
+        <script src="/admin/ApiUser.js"></script>
+            <!-- END: Pages, layouts, components JS Assets-->
+    </body>
+
+    <!-- Mirrored from midone-html.left4code.com/enigma-side-menu-dashboard-overview-1-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Aug 2025 16:29:44 GMT -->
+
+    </html>

@@ -21,7 +21,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "database": "node ./src/config/createDatabase.js"
+    "database": "node ./src/config/createDatabase.js",
+    "runtable": "node ./src/models/index.js"
+    
   },
   "author": "",
   "license": "ISC",
