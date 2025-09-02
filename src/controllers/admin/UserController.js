@@ -15,7 +15,7 @@ exports.AccountUser = async (req, res) => {
 
         let where ={ role_id :1};
         if(req.query && req.query.search){
-            where.title = { [Op.like]: `%${search}%` };
+            where.username = { [Op.like]: `%${search}%` };
             
         }
         
@@ -56,7 +56,7 @@ exports.AccountBusiness = async (req, res) => {
 
         let where ={ role_id :1};
         if(search){
-            where.title = { [Op.like]: `%${search}%` };
+            where.username = { [Op.like]: `%${search}%` };
             
         }
          const { count, rows } = await connect.findAndCountAll({
