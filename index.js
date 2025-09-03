@@ -29,6 +29,31 @@ app.use(session({
     cookie:{maxAge: 1000 * 60 * 15} // lưu 15p
 }))
 
+// Gán thông tin người dùng vào res.locals để EJS có thể truy cập
+app.use((req, res, next) => {
+    try {
+        const token = req.cookies && req.cookies.accessToken;
+        if (!token) {
+            res.locals.currentUser = null;
+            return next();
+        }
+        const decoded = require('jsonwebtoken').verify(token, process.env.ACCESS_TOKEN_SECRET);
+        if (!decoded) {
+            res.locals.currentUser = null;
+            return next();
+        }
+        res.locals.currentUser = {
+            id: decoded.id,
+            username: decoded.username,
+            role_id: decoded.role_id || null
+        };
+        return next();
+    } catch (err) {
+        res.locals.currentUser = null;
+        return next();
+    }
+});
+
 app.use('/', Routers);
 app.use('/admin',authMiddleware,RouterAdmin);
 
