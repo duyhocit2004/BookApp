@@ -5,6 +5,7 @@ const { Category } = require('./Category');
 const {Location} = require('./LocationShop');
 const { User } = require('./User');
 const { role } = require('./Role');
+const {Post} = require('./Post');
 
 (async () => {
     try {
@@ -12,14 +13,14 @@ const { role } = require('./Role');
         console.log("kết nối database", sequelize.config.database);
 
         
-        await role();
-        await Category();       // tạo bảng category
-        await Product();        // tạo bảng product
-        await Album();          // tạo bảng albumImage
-        await Location();       // tạo bảng locationShop
-        await TimeTable();      // tạo bảng timeTable
-        await User();   
-
+        // await role();
+        // await Category();       // tạo bảng category
+        // await Product();        // tạo bảng product
+        // await Album();          // tạo bảng albumImage
+        // await Location();       // tạo bảng locationShop
+        // await TimeTable();      // tạo bảng timeTable
+        // await User();   
+        // await Post();
 
         process.exit();
     } catch (error) {

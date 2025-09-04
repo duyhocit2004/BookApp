@@ -3,9 +3,13 @@ const app = express()
 const port = 3000
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-require('dotenv').config
+const methodOverride = require('method-override');
+require('dotenv').config()
 
 const authMiddleware = require('./src/middlewares/auth');
+
+
+app.use(methodOverride('_method'));
 
 const Routers = require('./src/routes/web')
 const RouterAdmin = require('./src/routes/admin')

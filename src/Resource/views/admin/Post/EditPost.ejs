@@ -1,0 +1,157 @@
+<%- include('../layout/head.ejs')%>
+
+    <body>
+        <div
+            class="page-loader bg-background fixed inset-0 z-[100] flex items-center justify-center transition-opacity">
+            <div class="loader-spinner !w-14"></div>
+        </div>
+        <div
+            class="enigma min-h-screen bg-[color-mix(in_oklch,_var(--color-background),_var(--color-foreground)_3%)] dark:bg-background before:bg-noise dark:before:bg-foreground/[.01] before:fixed before:inset-0 before:opacity-20 after:bg-accent after:bg-contain after:fixed after:inset-0 after:blur-xl after:opacity-[.25]">
+            <div
+                class="side-menu xl:ml-0 transition-[margin] duration-200 fixed top-0 left-0 z-50 group before:content-[''] before:fixed before:inset-0 before:bg-black/80 dark:before:bg-foreground/5 before:backdrop-blur before:xl:hidden after:content-[''] after:absolute after:inset-0 after:bg-background after:xl:hidden [&.side-menu--mobile-menu-open]:ml-0 [&.side-menu--mobile-menu-open]:before:block -ml-[320px] before:hidden">
+                <div
+                    class="close-mobile-menu fixed ml-[320px] xl:hidden z-50 cursor-pointer text-background dark:text-foreground [&.close-mobile-menu--mobile-menu-open]:block hidden">
+                    <div class="ml-5 mt-5 flex size-10 items-center justify-center">
+                        <i data-lucide="x"
+                            class="[--color:currentColor] stroke-(--color) fill-(--color)/25 size-7 stroke-1"></i>
+                    </div>
+                </div>
+                <!-- sidebar-Start -->
+                <%- include('../layout/sidebar.ejs') %>
+                    <!-- sidebar-End -->
+            </div>
+            <div
+                class="content h-screen transition-[margin,width] duration-200 pt-32 pb-8 px-7 z-10 relative group before:absolute before:bottom-4 before:top-27 before:-ml-px before:right-4 before:opacity-[.07] before:left-4 xl:before:left-0 before:bg-foreground before:rounded-4xl after:absolute after:bottom-4 after:top-27 after:-ml-px after:right-4 after:left-4 xl:after:left-0 after:bg-[color-mix(in_oklch,_var(--color-background),_var(--color-foreground)_2%)] after:rounded-4xl after:border after:border-foreground/[.15] dark:after:opacity-[.59] xl:ml-[320px] [&.content--compact]:xl:ml-[165px]">
+                <div
+                    class="relative h-full [--color-nav-foreground:var(--color-background)] dark:[--color-nav-foreground:var(--color-foreground)]">
+                    <div class="h-full overflow-x-hidden">
+                        <div
+                            class="content__scroll-area relative z-20 -mr-7 h-full overflow-y-auto pl-4 pr-11 transition-[margin] duration-200 xl:pl-0">
+                            <!-- Menu-Start -->
+                            <%- include('../layout/menu.ejs') %>
+                                <!-- Menu_end -->
+                                <div class="-mt-5" id="mt">
+                                    <form action="/admin/EditPost/<%=post.id%>?_method=put" method="POST"  enctype="multipart/form-data">
+                                        <!-- main_start -->
+                                        <div class="flex flex-col items-center mt-8 sm:flex-row">
+                                            <h2 class="mr-auto text-lg font-medium">Thêm bài đăng</h2>
+                                            <div class="flex w-full mt-4 sm:mt-0 sm:w-auto">
+                                                <div data-tw-placement="bottom-end" class="dropdown mr-2">
+
+                                                </div>
+
+                                                <div data-tw-placement="bottom-end" class="dropdown">
+                                                    <button
+                                                        class="border justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-(--color)/20 border-(--color)/60 text-(--color) hover:bg-(--color)/5 [--color:var(--color-primary)] h-10 px-4 py-2 dropdown-toggle cursor-pointer relative z-[51] flex items-center box"
+                                                        data-tw-toggle="dropdown">
+                                                        Lưu
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="grid grid-cols-12 gap-8 mt-5">
+                                            <!-- BEGIN: Post Content -->
+                                            <div class="col-span-12">
+                                                <div
+                                                    class="box relative p-5 before:absolute before:inset-0 before:mx-3 before:-mb-3 before:border before:border-foreground/10 before:bg-background/30 before:shadow-[0px_3px_5px_#0000000b] before:z-[-1] before:rounded-xl after:absolute after:inset-0 after:border after:border-foreground/10 after:bg-background after:shadow-[0px_3px_5px_#0000000b] after:rounded-xl after:z-[-1] after:backdrop-blur-md">
+                                                    <input
+                                                        class="h-10 w-full rounded-md border px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-foreground/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/5 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-foreground/[.03]"
+                                                        type="text" value="<%= post.title%>" name="title" placeholder="Tiêu đề">
+                                                </div>
+                                                <div
+                                                    class="box relative p-5 before:absolute before:inset-0 before:mx-3 before:-mb-3 before:border before:border-foreground/10 before:bg-background/30 before:shadow-[0px_3px_5px_#0000000b] before:z-[-1] before:rounded-xl after:absolute after:inset-0 after:border after:border-foreground/10 after:bg-background after:shadow-[0px_3px_5px_#0000000b] after:rounded-xl after:z-[-1] after:backdrop-blur-md mt-8">
+                                                    <div class="tabs relative w-full">
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane [&.active]:block" role="tabpanel">
+                                                                <div class="mt-3.5">
+                                                                    <div class="p-5 border rounded-lg">
+                                                                        <div
+                                                                            class="flex items-center pb-5 font-medium border-b">
+                                                                            <i data-lucide="chevron-down"
+                                                                                class="stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 mr-2 size-4"></i>
+                                                                          Nội dung
+                                                                        </div>
+                                                                        <div class="mt-5">
+                                                                            <textarea name="description"id="description">
+                                                                                <%= post.description%>
+
+                                                                            </textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="p-5 mt-5 border rounded-lg">
+                                                                        <div
+                                                                            class="flex items-center pb-5 font-medium border-b">
+                                                                            <i data-lucide="chevron-down"
+                                                                                class="stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 mr-2 size-4"></i>
+                                                                            Đường dẫn & Ảnh
+                                                                        </div>
+                                                                        <div class="mt-5">
+                                                                            <div class="flex flex-col gap-2.5"><label
+                                                                                    for="post-form-7"
+                                                                                    class="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Đường
+                                                                                    dẫn</label>
+                                                                                <input id="post-form-7" type="text"
+                                                                                    name="link" value="<%= post.link%>"
+                                                                                    placeholder=""
+                                                                                    class="h-10 w-full rounded-md border bg-background px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-foreground/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/5 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                                                                            </div>
+                                                                            <div class="flex flex-col gap-2.5 mt-3"><label
+                                                                                    class="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Tải
+                                                                                    ảnh</label>
+                                                                                <div id="background"class="pt-4 border-2 border-dashed rounded-xl">
+                                                                                    <div class="flex flex-wrap px-4">
+                                                                                        <div style="width: 100%; height: 550px;"
+                                                                                            class="relative w-24 h-24 mb-5 mr-5 cursor-pointer image-fit">
+                                                                                            <img width="100%" class="rounded-xl"
+                                                                                                id="imagess" src="<%= post.image%>"
+                                                                                                alt="">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="relative flex items-center px-4 pb-4 cursor-pointer">
+                                                                                        <i data-lucide="image"
+                                                                                            class="stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 mr-2 size-4"></i>
+                                                                                        <span class="mr-1 text-primary">
+                                                                                            Tải ảnh lên
+                                                                                        </span>
+                                                                                        <input name="image" id="file" value="<%= post.image%>"
+                                                                                            class="rounded-md border bg-background px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-foreground/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/5 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 absolute top-0 left-0 w-full h-full opacity-0"
+                                                                                            type="file">
+                                                                                    </div>
+                                                                                     
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="flex flex-col gap-2.5 mt-3">
+                                                                                <label for="crud-form-2" class="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Trạng thái</label>
+                                                                                        <select data-config="{}" class="h-10 w-full rounded-md border px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-foreground/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/5 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-foreground/[.03]" 
+                                                                                        id="crud-form-2">
+                                                                                            <option value="active"  <%= post.status === 'active' ? 'selected'  : ""  %>>Hoạt động</option>
+                                                                                            <option value="inactive" <%= post.status === 'inactive' ? 'selected'  : ""  %>>Không hoạt động</option>
+                                                                                        </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END: Post Content -->
+                                        </div>
+                                        <!-- main_end -->
+                                     </form>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../layout/js.ejs')%>
+            <script src="/admin/AddPost.js"></script>
+            <!-- END: Pages, layouts, components JS Assets-->
+    </body>
+
+    <!-- Mirrored from midone-html.left4code.com/enigma-side-menu-dashboard-overview-1-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Aug 2025 16:29:44 GMT -->
+
+    </html>
