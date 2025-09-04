@@ -1,3 +1,3 @@
 exports.Home = (req,res,next)=>{
-    res.render('index')
+    res.render('client/index')
 }

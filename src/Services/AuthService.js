@@ -7,8 +7,6 @@ let nodemailer = require('nodemailer');
 const { random } = require('lodash');
 const crypto = require('crypto');
 
-
-
 exports.LoginClient = async (req, res) => {
     try {
         let find = null;
@@ -19,14 +17,13 @@ exports.LoginClient = async (req, res) => {
         // xác nhận tài khoản name || email
         if (validator.isEmail(UserNameOrEmail)) {
 
-            find = await connect.findOne({ where: { email: UserNameOrEmail,role_id : 1 } })
+            find = await connect.findOne({ where: { email: UserNameOrEmail, role_id: 1 } })
 
         } else {
 
-            find = await connect.findOne({ where: { username: UserNameOrEmail,role_id : 1 } })
+            find = await connect.findOne({ where: { username: UserNameOrEmail, role_id: 1 } })
 
         }
-
 
         if (!find) return res.render('auth/loginClient', { error: "Tài khoản không tồn tại" })
         console.log(find);
@@ -84,13 +81,13 @@ exports.sendForgetpassword = async (req, res) => {
     try {
         let connect = await User();
 
-        const  email  = req.body.email;
+        const email = req.body.email;
 
         console.log(req.body);
 
-        const find = await connect.findOne({ where: { email: email,role_id : 1 } });
+        const find = await connect.findOne({ where: { email: email, role_id: 1 } });
 
-        
+
         if (!find) return res.render('auth/forgotPassword', { error: "email không tồn tại" });
 
         const code = await crypto.randomBytes(4).toString("hex");
@@ -118,7 +115,7 @@ exports.sendForgetpassword = async (req, res) => {
             }
         })
 
-        if(req.session.resetEmail && req.session.tokenEmail){
+        if (req.session.resetEmail && req.session.tokenEmail) {
             delete req.session.resetEmail;
             delete req.session.tokenEmail;
         }
@@ -138,25 +135,25 @@ exports.confirmtToken = async (req, res) => {
 
         const token1 = req.session.tokenEmail;
 
-         if (!token1) {
-        return res.render("auth/forgotPassword", { error: "Hết hạn token" });
+        if (!token1) {
+            return res.render("auth/forgotPassword", { error: "Hết hạn token" });
         }
-        const {token} = req.body;
-        
-        console.log("mã"+token)
+        const { token } = req.body;
 
-        if(token1 !== token){
-           return res.render('auth/tokenPassword',{error:"mã không đúng"})
+        console.log("mã" + token)
+
+        if (token1 !== token) {
+            return res.render('auth/tokenPassword', { error: "Mã không chính xác" })
         }
 
         req.session.status = true
 
         delete req.session.tokenEmail
 
-        
+
         return res.redirect('/FormResetPassword')
     } catch (error) {
-        console.log("lỗi" + error);
+        console.log("Lỗi" + error);
         res.redirect('/GetFormToken')
     }
 }
@@ -187,8 +184,6 @@ exports.ResetPasswordUser = async (req, res) => {
             );
         }
 
-        
-
         return res.redirect('/FormLogin');
 
     } catch (error) {
@@ -198,10 +193,8 @@ exports.ResetPasswordUser = async (req, res) => {
 };
 
 
-
-
 exports.LoginAdmin = async (req, res) => {
-     try {
+    try {
         let find = null;
         const connect = await User();
         // lưu thông tin nhập
@@ -210,12 +203,11 @@ exports.LoginAdmin = async (req, res) => {
         // xác nhận tài khoản name || email
         if (validator.isEmail(UserNameOrEmail)) {
 
-            find = await connect.findOne({ where: { email: UserNameOrEmail,role_id : 3 } })
+            find = await connect.findOne({ where: { email: UserNameOrEmail, role_id: 3 } })
 
         }
 
-
-        if (!find) return res.render('auth/loginAdmin', { error: "Tài khoản không tồn tại" })
+        if (!find) return res.render('auth/loginAdmin', { error: "Tài khoản không có quyền truy cập" })
         console.log(find);
 
         const math = await bcrypt.compare(password, find.password);
@@ -224,19 +216,19 @@ exports.LoginAdmin = async (req, res) => {
 
         // tạo JWT nếu người dùng đăng nhập thành công
         const accessToken = JWT.sign(
-            { "username": find.username, "id": find.id,'role_id':find.role_id },
+            { "username": find.username, "id": find.id, 'role_id': find.role_id },
             process.env.ACCESS_TOKEN_SECRET,
             { expiresIn: "2h" }
         )
 
-        
+
         // gửi token len cookie
         res.cookie('accessToken', accessToken, {
             httpOnly: true,
             secure: false,
             maxAge: 2 * 60 * 60 * 1000
         })
-        
+
         res.redirect('/admin/');
     } catch (error) {
         console.log("Lỗi" + error)

@@ -33,8 +33,7 @@ const upload = multer({
     // }
 });
 
-
-
+    
 Routers.get("/",AdminController.Admin);
 
 Routers.get('/ListProduct',ProductController.ListProduct);

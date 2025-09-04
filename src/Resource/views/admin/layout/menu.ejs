@@ -115,13 +115,13 @@
                                 </div>
                                 <div class="group/profile relative size-9 flex-none">
                                     <span data-content="" class="tooltip border-(--color)/5 block relative flex-none overflow-hidden rounded-full border-3 ring-1 ring-(--color)/40 size-full [--color:var(--color-nav-foreground)]">
-                                        <img class="absolute top-0 size-full object-cover" src="dist/images/fakers/profile-12.jpg" alt="Midone - Tailwind Admin Dashboard Template">
+                                        <img class="absolute top-0 size-full object-cover" src="dist/images/fakers/profile-10.jpg" alt="Midone - Tailwind Admin Dashboard Template">
                                     </span>
                                     <div class="hidden group-hover/profile:block">
                                         <div class="box p-5 before:absolute before:inset-0 before:mx-3 before:-mb-3 before:border before:border-foreground/10 before:bg-background/30 before:z-[-1] after:absolute after:inset-0 after:border after:border-foreground/10 after:bg-background after:shadow-[0px_3px_5px_#0000000b] after:z-[-1] after:backdrop-blur-md before:shadow-foreground/5 absolute right-0 top-0 z-50 -mr-0.5 -mt-0.5 flex w-64 flex-col gap-2.5 px-6 py-5 before:rounded-2xl before:shadow-xl before:backdrop-blur after:rounded-2xl">
                                             <div class="flex flex-col gap-0.5">
-                                                <div class="font-medium">John Travolta</div>
-                                                <div class="mt-0.5 text-xs opacity-70">Frontend Engineer</div>
+                                                <div class="font-medium"><%= (currentUser && currentUser.username) ? currentUser.username : 'Tài khoản' %></div>
+                                                <div class="mt-0.5 text-xs opacity-70"><%= (currentUser && currentUser.role_id === 3) ? 'Admin' : (currentUser ? 'User' : 'Vai trò') %></div>
                                             </div>
                                             <div class="bg-foreground/5 h-px"></div>
                                             <div class="flex flex-col gap-0.5">
