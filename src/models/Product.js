@@ -1,6 +1,6 @@
 const { connectDatabase } = require('../config/db');
 const { DataTypes } = require('sequelize')
-const {Album }= require('./AlbumImage');
+const { Album } = require('./AlbumImage');
 
 // let cate = Category();
 
@@ -13,11 +13,11 @@ const Product = async () => {
             type: DataTypes.INTEGER,
         },
         Category_id: {
-           type: DataTypes.INTEGER,
-           references :{
-            key:"id",
-            model : "category"
-           }
+            type: DataTypes.INTEGER,
+            references: {
+                key: "id",
+                model: "category"
+            }
         },
         title: {
             type: DataTypes.STRING(70),
@@ -25,7 +25,7 @@ const Product = async () => {
         LocationDetail: {
             type: DataTypes.STRING(100),
         },
-        discount :{
+        discount: {
             type: DataTypes.INTEGER,
         },
         price: {
@@ -33,22 +33,22 @@ const Product = async () => {
         },
         description: {
             type: DataTypes.TEXT,
-            allowNull :true
+            allowNull: true
         }
-        ,status:{
+        , status: {
             type: DataTypes.INTEGER,
         }
-    },{
-        tableName:"product"
+    }, {
+        tableName: "product"
     })
 
     let AlbumImage = await Album();
 
-    AlbumImage.belongsTo(product,{foreignKey:"product_id",as :"product"});
-    product.hasMany(AlbumImage,{foreignKey:"product_id",as :"albumImage"})
+    AlbumImage.belongsTo(product, { foreignKey: "product_id", as: "product" });
+    product.hasMany(AlbumImage, { foreignKey: "product_id", as: "albumImage" })
 
-    await product.sync({alter :true});
+    await product.sync({ alter: true });
     return product;
 }
 
-module.exports = {Product}
+module.exports = { Product }

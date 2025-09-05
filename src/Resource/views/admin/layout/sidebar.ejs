@@ -1,65 +1,16 @@
  <div class="side-menu__content z-20 relative w-[320px] duration-200 transition-[width] group-[.side-menu--collapsed]:xl:w-[165px] group-[.side-menu--collapsed.side-menu--on-hover]:xl:w-[320px] h-screen flex flex-col-reverse xl:flex-col before:absolute before:inset-y-0 before:w-px before:mt-23 before:bg-foreground/[.11] dark:before:bg-foreground/10 before:right-0 before:mr-8 before:hidden xl:before:block">
                 <div class="relative z-10 mt-3 hidden h-[90px] w-[320px] flex-none items-center overflow-hidden pl-8 pr-14 duration-200 xl:flex group-[.side-menu--collapsed.side-menu--on-hover]:xl:w-[320px] group-[.side-menu--collapsed]:xl:w-[165px]">
                     <a class="relative flex items-center transition-[margin] duration-200 xl:ml-1.5 group-[.side-menu--collapsed.side-menu--on-hover]:xl:ml-1.5 group-[.side-menu--collapsed]:xl:ml-8" href="#">
-                        <img class="size-5" src="/clients/dist/images/logo.svg">
                         <div class="dark:text-foreground text-background ml-3.5 text-nowrap transition-opacity group-[.side-menu--collapsed.side-menu--on-hover]:xl:opacity-100 group-[.side-menu--collapsed]:xl:opacity-0">
-                            <span class="text-base font-medium">Midone</span>
-                            <span class="text-base font-light">Enigma</span>
+                            <span class="text-base font-medium">Book</span>
+                            <span class="text-base font-light">App</span>
                         </div>
                     </a>
                     <a class="toggle-compact-menu text-background dark:text-foreground border-background/20 bg-background/10 dark:bg-foreground/[.02] dark:border-foreground/[.11] relative ml-auto hidden items-center justify-center rounded-md border py-0.5 pl-0.5 pr-1 opacity-70 transition-[opacity,transform] hover:opacity-100 group-[.side-menu--collapsed]:xl:rotate-180 group-[.side-menu--collapsed.side-menu--on-hover]:xl:opacity-100 group-[.side-menu--collapsed]:xl:opacity-0 2xl:flex" href="#">
                         <i data-lucide="chevron-left" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
                     </a>
                 </div>
-                <div class="side-menu__account group/profile relative transition-[width] xl:mb-2 xl:mr-8">
-                    <div class="border-foreground/[.11] dark:border-foreground/[.11] flex cursor-pointer items-center justify-center border-t py-3 pl-6 pr-5 opacity-90 transition hover:opacity-100 xl:border-b xl:border-t-0 xl:pb-6 xl:pl-8 xl:pt-2.5">
-                        <div class="border-background/70 dark:border-foreground/20 relative h-11 w-11 flex-none overflow-hidden rounded-full border-4 shadow-sm">
-                            <img class="absolute top-0 h-full w-full object-cover" src="dist/images/fakers/profile-10.jpg" alt="Midone - Admin Dashboard Template">
-                        </div>
-                        <div class="ms-3 flex w-full items-center overflow-hidden transition-opacity group-[.side-menu--collapsed.side-menu--on-hover]:ms-3 group-[.side-menu--collapsed.side-menu--on-hover]:w-full group-[.side-menu--collapsed.side-menu--on-hover]:opacity-100 xl:group-[.side-menu--collapsed]:ms-0 xl:group-[.side-menu--collapsed]:w-0 xl:group-[.side-menu--collapsed]:opacity-0">
-                            <div class="text-primary dark:text-foreground w-28">
-                                <div class="w-full truncate font-medium">Denzel Washington
-                                </div>
-                                <div class="mt-0.5 w-full truncate text-xs opacity-60">Administrator</div>
-                            </div>
-                            <i data-lucide="move-right" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 me-4 ms-auto opacity-50"></i>
-                        </div>
-                    </div>
-                    <div class="hidden group-hover/profile:block">
-                        <div class="box p-5 before:absolute before:inset-0 before:mx-3 before:-mb-3 before:border before:border-foreground/10 before:bg-background/30 before:z-[-1] after:absolute after:inset-0 after:border after:border-foreground/10 after:bg-background after:shadow-[0px_3px_5px_#0000000b] after:z-[-1] after:backdrop-blur-md text-foreground before:shadow-foreground/5 absolute bottom-0 left-[100%] z-50 ml-2 flex w-64 flex-col gap-2.5 px-6 py-5 before:rounded-2xl before:shadow-xl before:backdrop-blur after:rounded-2xl xl:bottom-auto xl:top-0">
-                            <div class="flex flex-col gap-0.5">
-                                <div class="font-medium">Denzel Washington</div>
-                                <div class="mt-0.5 text-xs opacity-70">Frontend Engineer</div>
-                            </div>
-                            <div class="bg-foreground/5 h-px"></div>
-                            <div class="flex flex-col gap-0.5">
-                                <a class="hover:bg-foreground/5 -mx-3 flex gap-2.5 rounded-lg px-4 py-1.5" href="#">
-                                    <i data-lucide="users" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
-                                    Profile
-                                </a>
-                                <a class="hover:bg-foreground/5 -mx-3 flex gap-2.5 rounded-lg px-4 py-1.5" href="#">
-                                    <i data-lucide="shield-alert" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
-                                    Add Account
-                                </a>
-                                <a class="hover:bg-foreground/5 -mx-3 flex gap-2.5 rounded-lg px-4 py-1.5" href="#">
-                                    <i data-lucide="file-lock" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
-                                    Reset Password
-                                </a>
-                                <a class="hover:bg-foreground/5 -mx-3 flex gap-2.5 rounded-lg px-4 py-1.5" href="#">
-                                    <i data-lucide="file-question" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
-                                    Help
-                                </a>
-                            </div>
-                            <div class="bg-foreground/5 h-px"></div>
-                            <div class="flex flex-col gap-0.5">
-                                <a class="hover:bg-foreground/5 -mx-3 flex gap-2.5 rounded-lg px-4 py-1.5" href="#">
-                                    <i data-lucide="power" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              
                 <div class="w-full h-full z-20 pl-4 xl:pl-7 pr-4 xl:pr-14 overflow-y-auto overflow-x-hidden pb-3 [&:-webkit-scrollbar]:w-0 scroll-smooth [&_.simplebar-scrollbar]:before:!bg-foreground/20 xl:[&_.simplebar-track.simplebar-vertical]:mr-9 [-webkit-mask-image:_linear-gradient(to_top,_rgba(0,_0,_0,_0),_black_30px),_linear-gradient(to_bottom,_rgba(0,_0,_0,_0),_black_30px)] [-webkit-mask-composite:_destination-in]" s="">
                     <ul class="scrollable">
                         <!-- BEGIN: First Child -->
@@ -132,17 +83,17 @@
                                     <a href="javascript:;" class="side-menu__link ">
                                         <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
                                         <div class="side-menu__link__title">
-                                            Bài đăng
+                                            Danh mục
                                         </div>
                                         <i data-lucide="chevron-down" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__chevron transition"></i>
                                     </a>
                                     <!-- BEGIN: Third Child -->
                                     <ul class="hidden">
                                         <li>
-                                            <a href="enigma-side-menu-transaction-list.html" class="side-menu__link ">
+                                            <a href="/admin/listCategory" class="side-menu__link ">
                                                 <i data-lucide="circle-gauge" class="size-4 stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 side-menu__link__icon"></i>
                                                 <div class="side-menu__link__title">
-                                                    Danh sách bài đăng
+                                                    Danh sách danh mục
                                                 </div>
                                             </a>
                                         </li>

@@ -1,18 +1,18 @@
-const {connectDatabase} = require('../config/db');
-const {DataTypes}=require('sequelize')
+const { connectDatabase } = require('../config/db');
+const { DataTypes } = require('sequelize')
 
-exports.Category  = async ()=>{
+exports.Category = async () => {
     const sequelize = await connectDatabase();
-    const category = await sequelize.define('category',{
-        id :{
-            primaryKey : true,
-            type : DataTypes.INTEGER,
-            autoIncrement : true
+    const category = await sequelize.define('category', {
+        id: {
+            primaryKey: true,
+            type: DataTypes.INTEGER,
+            autoIncrement: true
         },
-        name : {
-            type : DataTypes.STRING(50)
+        name: {
+            type: DataTypes.STRING(50)
         }
-    },{
+    }, {
         tableName: 'category',
     })
     await category.sync({ alter: true });

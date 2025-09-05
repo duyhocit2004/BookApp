@@ -6,6 +6,7 @@ const Routers = express.Router();
 const AdminController = require('../controllers/adminController')
 const ProductController = require('../controllers/admin/ProductController')
 const UserController = require('../controllers/admin/UserController')
+const CategoryController = require('../controllers/admin/CategoryController')
 
 // Cấu hình lưu file
 const storage = multer.diskStorage({
@@ -31,16 +32,23 @@ const upload = multer({
     }
 });
 
-    
-Routers.get("/",AdminController.Admin);
 
-Routers.get('/ListProduct',ProductController.ListProduct);
-Routers.post('/status/:id',ProductController.statusProduct);
+Routers.get("/", AdminController.Admin);
 
-Routers.get('/AccountUser',UserController.AccountUser);
-Routers.get('/AccountBusiness',UserController.AccountBusiness);
-Routers.get('/DetailAccount/:id',UserController.GetDetailAccount);
-Routers.post('/UpdateAccount/:id',UserController.UpdateAccount)
+Routers.get('/ListProduct', ProductController.ListProduct);
+Routers.post('/status/:id', ProductController.statusProduct);
+
+Routers.get('/ListCategory', CategoryController.ListCategory);
+Routers.get('/AddCategory', CategoryController.AddCategory);
+Routers.post('/PostCategory', CategoryController.PostCategory);
+Routers.get('/EditCategory/:id', CategoryController.EditCategory);
+Routers.post('/UpdateCategory/:id', CategoryController.UpdateCategory);
+Routers.delete('/DeleteCategory/:id', CategoryController.DeleteCategory);
+
+Routers.get('/AccountUser', UserController.AccountUser);
+Routers.get('/AccountBusiness', UserController.AccountBusiness);
+Routers.get('/DetailAccount/:id', UserController.GetDetailAccount);
+Routers.post('/UpdateAccount/:id', UserController.UpdateAccount)
 
 Routers.post('/upload', upload.single('file'), (req, res) => {
     res.json({ message: 'File uploaded successfully', file: req.file });

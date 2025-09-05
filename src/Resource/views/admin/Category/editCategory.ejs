@@ -1,0 +1,78 @@
+<%- include('../layout/head.ejs')%>
+
+    <body>
+        <div
+            class="page-loader bg-background fixed inset-0 z-[100] flex items-center justify-center transition-opacity">
+            <div class="loader-spinner !w-14"></div>
+        </div>
+        <div
+            class="enigma min-h-screen bg-[color-mix(in_oklch,_var(--color-background),_var(--color-foreground)_3%)] dark:bg-background before:bg-noise dark:before:bg-foreground/[.01] before:fixed before:inset-0 before:opacity-20 after:bg-accent after:bg-contain after:fixed after:inset-0 after:blur-xl after:opacity-[.25]">
+            <div
+                class="side-menu xl:ml-0 transition-[margin] duration-200 fixed top-0 left-0 z-50 group before:content-[''] before:fixed before:inset-0 before:bg-black/80 dark:before:bg-foreground/5 before:backdrop-blur before:xl:hidden after:content-[''] after:absolute after:inset-0 after:bg-background after:xl:hidden [&.side-menu--mobile-menu-open]:ml-0 [&.side-menu--mobile-menu-open]:before:block -ml-[320px] before:hidden">
+                <div
+                    class="close-mobile-menu fixed ml-[320px] xl:hidden z-50 cursor-pointer text-background dark:text-foreground [&.close-mobile-menu--mobile-menu-open]:block hidden">
+                    <div class="ml-5 mt-5 flex size-10 items-center justify-center">
+                        <i data-lucide="x"
+                            class="[--color:currentColor] stroke-(--color) fill-(--color)/25 size-7 stroke-1"></i>
+                    </div>
+                </div>
+                <!-- sidebar-Start -->
+                <%- include('../layout/sidebar.ejs') %>
+                    <!-- sidebar-End -->
+            </div>
+            <div
+                class="content h-screen transition-[margin,width] duration-200 pt-32 pb-8 px-7 z-10 relative group before:absolute before:bottom-4 before:top-27 before:-ml-px before:right-4 before:opacity-[.07] before:left-4 xl:before:left-0 before:bg-foreground before:rounded-4xl after:absolute after:bottom-4 after:top-27 after:-ml-px after:right-4 after:left-4 xl:after:left-0 after:bg-[color-mix(in_oklch,_var(--color-background),_var(--color-foreground)_2%)] after:rounded-4xl after:border after:border-foreground/[.15] dark:after:opacity-[.59] xl:ml-[320px] [&.content--compact]:xl:ml-[165px]">
+                <div
+                    class="relative h-full [--color-nav-foreground:var(--color-background)] dark:[--color-nav-foreground:var(--color-foreground)]">
+                    <div class="h-full overflow-x-hidden">
+                        <div
+                            class="content__scroll-area relative z-20 -mr-7 h-full overflow-y-auto pl-4 pr-11 transition-[margin] duration-200 xl:pl-0">
+                            <!-- Menu-Start -->
+                            <%- include('../layout/menu.ejs') %>
+                                <!-- Menu_end -->
+                                <div class="-mt-5" id="mt">
+                                    <!-- main_start -->
+                                    <div>
+                                        <h2 class="mt-10 text-lg font-medium mb-4">Sửa danh mục</h2>
+                                        <% if (typeof error !== 'undefined' && error) { %>
+                                        <div class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                                            <%= error %>
+                                        </div>
+                                        <% } %>
+                                        <!-- BEGIN: Form Layout -->
+                                        <form action="/admin/UpdateCategory/<%= category.id %>" method="POST"
+                                            class="box relative p-5 before:absolute before:inset-0 before:mx-3 before:-mb-3 before:border before:border-foreground/10 before:bg-background/30 before:shadow-[0px_3px_5px_#0000000b] before:z-[-1] before:rounded-xl after:absolute after:inset-0 after:border after:border-foreground/10 after:bg-background after:shadow-[0px_3px_5px_#0000000b] after:rounded-xl after:z-[-1] after:backdrop-blur-md">
+                                            <div class="flex flex-col gap-2.5">
+                                                <label for="crud-form-1"
+                                                    class="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 mb-2">Tên danh mục</label>
+                                                <input
+                                                    class="h-10 rounded-md border bg-background px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-foreground/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/5 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+                                                    id="crud-form-1" name="name" type="text" placeholder="Nhập tên danh mục" 
+                                                    value="<%= category.name %>" required>
+                                            </div>
+
+                                            <div class="mt-5 text-right">
+                                                <a href="/admin/ListCategory"
+                                                    class="[--color:var(--color-foreground)] cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-(--color) hover:bg-(--color)/5 bg-background border-(--color)/20 h-10 px-4 py-2 mr-1 w-24">
+                                                    Cancel
+                                                </a>
+                                                <button
+                                                    class="cursor-pointer inline-flex border items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-(--color)/20 border-(--color)/60 text-(--color) hover:bg-(--color)/5 [--color:var(--color-primary)] h-10 px-4 py-2 w-24"
+                                                    type="submit">
+                                                    Update
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <!-- END: Form Layout -->
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <%- include('../layout/js.ejs')%>
+                    <!-- END: Pages, layouts, components JS Assets-->
+    </body>
+
+    <!-- Mirrored from midone-html.left4code.com/enigma-side-menu-dashboard-overview-1-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Aug 2025 16:29:44 GMT -->
+
+    </html>
