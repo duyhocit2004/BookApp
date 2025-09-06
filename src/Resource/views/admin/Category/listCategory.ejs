@@ -34,6 +34,35 @@
                                     <!-- main_start -->
                                     <div>
                                         <h2 class="mt-10 text-lg font-medium">Danh mục</h2>
+                                        
+                                        <!-- Notification Area -->
+                                        <% if (success) { %>
+                                        <div id="success-notification" class="mt-4 p-4 rounded-lg border-l-4 bg-green-50 border-green-400 text-green-700">
+                                            <div class="flex">
+                                                <div class="flex-shrink-0">
+                                                    <i data-lucide="check-circle" class="h-5 w-5"></i>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <p class="text-sm font-medium">
+                                                        <% if (success === 'add') { %>
+                                                            Thêm danh mục thành công!
+                                                        <% } else if (success === 'edit') { %>
+                                                            Cập nhật danh mục thành công!
+                                                        <% } else if (success === 'delete') { %>
+                                                            Xóa danh mục thành công!
+                                                        <% } %>
+                                                    </p>
+                                                </div>
+                                                <div class="ml-auto pl-3">
+                                                    <div class="-mx-1.5 -my-1.5">
+                                                        <button type="button" onclick="closeNotification()" class="inline-flex rounded-md p-1.5 text-green-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-50 focus:ring-green-600">
+                                                            <i data-lucide="x" class="h-4 w-4"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% } %>
                                         <div class="mt-5 grid grid-cols-12 gap-6">
                                             <div class="col-span-12 mt-2 flex flex-wrap items-center sm:flex-nowrap">
                                                 <a href="/admin/AddCategory"
@@ -76,13 +105,21 @@
                                                     </div>
                                                 </div>
                                                 <div class="mx-auto hidden opacity-70 md:block">
-                                                    Showing 1 to 10 of 150 entries
+                                                    <% if (typeof searchResults !== 'undefined' && typeof searchTerm !== 'undefined' && searchTerm) { %>
+                                                        Hiển thị <%= searchResults %> kết quả cho "<%= searchTerm %>"
+                                                    <% } else { %>
+                                                        Hiển thị <%= Category ? Category.length : 0 %> danh mục
+                                                    <% } %>
                                                 </div>
                                                 <div class="mt-3 w-full sm:ml-auto sm:mt-0 sm:w-auto md:ml-0">
                                                     <div class="relative w-56">
                                                         <input
+                                                            id="search-input"
                                                             class="h-10 rounded-md border bg-background px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-foreground/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/5 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 box w-56 pr-10"
-                                                            type="text" placeholder="Search...">
+                                                            type="text" 
+                                                            placeholder="Tìm kiếm danh mục..." 
+                                                            value="<%= typeof searchTerm !== 'undefined' ? searchTerm : '' %>"
+                                                            autocomplete="off">
                                                         <i data-lucide="search"
                                                             class="stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 absolute inset-y-0 right-0 my-auto mr-3 size-4 opacity-70"></i>
                                                     </div>
@@ -115,7 +152,7 @@
                                                             <% Category.forEach(function(item, index) { %>
                                                             <tr class="transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted border-b-0">
                                                                 <td class="shadow-[3px_3px_5px_#0000000b] first:rounded-l-xl last:rounded-r-xl box rounded-none p-4 align-middle [&:has([role=checkbox])]:pr-0 border-y border-foreground/10 bg-background first:border-l last:border-r">
-                                                                    <%= item.id %>
+                                                                    <%= index + 1 %>
                                                                 </td>
                                                                 <td
                                                                     class="shadow-[3px_3px_5px_#0000000b] first:rounded-l-xl last:rounded-r-xl box rounded-none p-4 align-middle [&:has([role=checkbox])]:pr-0 border-y border-foreground/10 bg-background first:border-l last:border-r">
@@ -146,7 +183,13 @@
                                                             <% }) %>
                                                             <% } else { %>
                                                             <tr>
-                                                                <td colspan="3" class="p-4 text-center opacity-70">Không có dữ liệu</td>
+                                                                <td colspan="3" class="p-4 text-center opacity-70">
+                                                                    <% if (typeof searchTerm !== 'undefined' && searchTerm) { %>
+                                                                        Không tìm thấy danh mục nào với từ khóa "<%= searchTerm %>"
+                                                                    <% } else { %>
+                                                                        Không có dữ liệu
+                                                                    <% } %>
+                                                                </td>
                                                             </tr>
                                                             <% } %>
                                                         </tbody>
@@ -262,14 +305,18 @@
                                 .then(response => response.json())
                                 .then(data => {
                                     if (data.success) {
-                                        window.location.reload();
+                                        showNotification('Xóa danh mục thành công!', 'success');
+                                        // Reload trang sau khi xóa thành công
+                                        setTimeout(() => {
+                                            window.location.reload();
+                                        }, 1500);
                                     } else {
-                                        alert('Lỗi: ' + data.message);
+                                        showNotification('Lỗi: ' + data.message, 'error');
                                     }
                                 })
                                 .catch(error => {
                                     console.error('Error:', error);
-                                    alert('Đã xảy ra lỗi khi xóa danh mục');
+                                    showNotification('Đã xảy ra lỗi khi xóa danh mục', 'error');
                                 });
                             }
                             
@@ -282,6 +329,151 @@
                             modal.style.display = 'none';
                         }
                         
+                        function showNotification(message, type = 'success') {
+                            // Xóa notification cũ nếu có
+                            const existingNotification = document.getElementById('dynamic-notification');
+                            if (existingNotification) {
+                                existingNotification.remove();
+                            }
+                            
+                            const notificationHtml = `
+                                <div id="dynamic-notification" class="mt-4 p-4 rounded-lg border-l-4 ${type === 'success' ? 'bg-green-50 border-green-400 text-green-700' : 'bg-red-50 border-red-400 text-red-700'}">
+                                    <div class="flex">
+                                        <div class="flex-shrink-0">
+                                            <i data-lucide="${type === 'success' ? 'check-circle' : 'x-circle'}" class="h-5 w-5"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium">${message}</p>
+                                        </div>
+                                        <div class="ml-auto pl-3">
+                                            <div class="-mx-1.5 -my-1.5">
+                                                <button type="button" onclick="closeNotification('dynamic-notification')" class="inline-flex rounded-md p-1.5 ${type === 'success' ? 'text-green-500 hover:bg-green-100' : 'text-red-500 hover:bg-red-100'} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-${type === 'success' ? 'green' : 'red'}-50 focus:ring-${type === 'success' ? 'green' : 'red'}-600">
+                                                    <i data-lucide="x" class="h-4 w-4"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            
+                            // Thêm notification vào sau tiêu đề
+                            const title = document.querySelector('h2.mt-10.text-lg.font-medium');
+                            title.insertAdjacentHTML('afterend', notificationHtml);
+                            
+                            // Auto hide sau 5 giây
+                            setTimeout(() => {
+                                closeNotification('dynamic-notification');
+                            }, 5000);
+                        }
+                        
+                        function closeNotification(notificationId = 'success-notification') {
+                            const notification = document.getElementById(notificationId);
+                            if (notification) {
+                                notification.remove();
+                            }
+                        }
+                        
+                        let searchTimeout;
+                        const searchInput = document.getElementById('search-input');
+                        const tbody = document.querySelector('tbody');
+                        const resultInfo = document.querySelector('.mx-auto.hidden.opacity-70.md\\:block');
+                        
+                        function updateTable(categories, searchTerm, totalItems) {
+                            if (categories.length === 0) {
+                                tbody.innerHTML = `
+                                    <tr>
+                                        <td colspan="3" class="p-4 text-center opacity-70">
+                                            ${searchTerm ? `Không tìm thấy danh mục nào với từ khóa "${searchTerm}"` : 'Không có dữ liệu'}
+                                        </td>
+                                    </tr>
+                                `;
+                            } else {
+                                tbody.innerHTML = categories.map((item, index) => `
+                                    <tr class="transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted border-b-0">
+                                        <td class="shadow-[3px_3px_5px_#0000000b] first:rounded-l-xl last:rounded-r-xl box rounded-none p-4 align-middle [&:has([role=checkbox])]:pr-0 border-y border-foreground/10 bg-background first:border-l last:border-r">
+                                            ${index + 1}
+                                        </td>
+                                        <td class="shadow-[3px_3px_5px_#0000000b] first:rounded-l-xl last:rounded-r-xl box rounded-none p-4 align-middle [&:has([role=checkbox])]:pr-0 border-y border-foreground/10 bg-background first:border-l last:border-r">
+                                            <div class="flex items-center justify-start">
+                                                ${item.name}
+                                            </div>
+                                        </td>
+                                        <td class="shadow-[3px_3px_5px_#0000000b] first:rounded-l-xl last:rounded-r-xl box rounded-none p-4 align-middle [&:has([role=checkbox])]:pr-0 border-y border-foreground/10 bg-background first:border-l last:border-r">
+                                            <div class="flex items-center justify-center">
+                                                <a class="mr-3 flex items-center" href="/admin/EditCategory/${item.id}">
+                                                    <i data-lucide="check-square" class="stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 mr-1 size-4"></i>
+                                                    Edit
+                                                </a>
+                                                <a class="text-danger flex items-center delete-category-btn" data-id="${item.id}" data-name="${item.name}" href="#">
+                                                    <i data-lucide="trash" class="stroke-[1.5] [--color:currentColor] stroke-(--color) fill-(--color)/25 mr-1 size-4"></i>
+                                                    Delete
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                `).join('');
+                                
+                                // Re-attach delete event listeners
+                                document.querySelectorAll('.delete-category-btn').forEach(btn => {
+                                    btn.addEventListener('click', handleDeleteClick);
+                                });
+                            }
+                            
+                            // Update result info
+                            if (searchTerm) {
+                                resultInfo.textContent = `Hiển thị ${totalItems} kết quả cho "${searchTerm}"`;
+                            } else {
+                                resultInfo.textContent = `Hiển thị ${totalItems} danh mục`;
+                            }
+                        }
+                        
+                        function performSearch(searchValue) {
+                            const url = searchValue ? `/admin/ListCategory?search=${encodeURIComponent(searchValue)}` : '/admin/ListCategory';
+                            
+                            fetch(url, {
+                                method: 'GET',
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'X-Requested-With': 'XMLHttpRequest'
+                                }
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    updateTable(data.categories, data.searchTerm, data.totalItems);
+                                } else {
+                                    console.error('Search error:', data.message);
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Search error:', error);
+                            });
+                        }
+                        
+                        if (searchInput) {
+                            searchInput.addEventListener('input', function(e) {
+                                const searchValue = e.target.value.trim();
+                                
+                                // Clear previous timeout
+                                clearTimeout(searchTimeout);
+                                
+                                // Set new timeout for search
+                                searchTimeout = setTimeout(() => {
+                                    performSearch(searchValue);
+                                }, 500); // Wait 500ms after user stops typing
+                            });
+                            
+                            // Handle Enter key press
+                            searchInput.addEventListener('keypress', function(e) {
+                                if (e.key === 'Enter') {
+                                    e.preventDefault();
+                                    clearTimeout(searchTimeout);
+                                    const searchValue = e.target.value.trim();
+                                    performSearch(searchValue);
+                                }
+                            });
+                        }
+
                         document.addEventListener('DOMContentLoaded', function() {
                             document.querySelectorAll('.delete-category-btn').forEach(btn => {
                                 btn.addEventListener('click', handleDeleteClick);
@@ -296,6 +488,14 @@
                                     closeModal();
                                 }
                             });
+                            
+                            // Auto hide notification từ server sau 5 giây
+                            const serverNotification = document.getElementById('success-notification');
+                            if (serverNotification) {
+                                setTimeout(() => {
+                                    closeNotification('success-notification');
+                                }, 5000);
+                            }
                         });
                     </script>
     </body>

@@ -8,7 +8,7 @@ exports.PostCategory = async (req, res) => {
         }
         const connect = await Category();
         await connect.create({ name });
-        return res.redirect('/admin/ListCategory');
+        return res.redirect('/admin/ListCategory?success=add');
 
     } catch (error) {
         console.log("Lỗi" + error);
@@ -24,6 +24,7 @@ exports.DeleteCategory = async (req, res) => {
         }
         
         const connect = await Category();
+        const category = await connect.findByPk(id);
         
         if (!category) {
             return res.status(404).json({ success: false, message: 'Không tìm thấy danh mục' });
@@ -75,13 +76,50 @@ exports.UpdateCategory = async (req, res) => {
         const connect = await Category();
         
         await connect.update({ name }, { where: { id } });
-        return res.redirect('/admin/ListCategory');
+        return res.redirect('/admin/ListCategory?success=edit');
 
     } catch (error) {
         console.log("Lỗi" + error);
         return res.render('admin/Category/editCategory', { 
             category: { id: req.params.id, name: req.body.name || '' },
             error: 'Đã xảy ra lỗi. Vui lòng thử lại.' 
+        });
+    }
+}
+
+exports.SearchCategory = async (req, res) => {
+    try {
+        const { search } = req.query;
+        
+        if (!search || search.trim() === '') {
+            return res.redirect('/admin/ListCategory');
+        }
+
+        const connect = await Category();
+        const { Op } = require('sequelize');
+        
+        const categories = await connect.findAll({
+            where: {
+                name: {
+                    [Op.like]: `%${search.trim()}%`
+                }
+            },
+            order: [['name', 'ASC']]
+        });
+
+        return res.render('admin/Category/listCategory', { 
+            Category: categories,
+            searchTerm: search.trim(),
+            searchResults: categories.length
+        });
+
+    } catch (error) {
+        console.log("Lỗi" + error);
+        return res.render('admin/Category/listCategory', { 
+            Category: [],
+            searchTerm: req.query.search || '',
+            searchResults: 0,
+            error: 'Đã xảy ra lỗi khi tìm kiếm. Vui lòng thử lại.'
         });
     }
 }

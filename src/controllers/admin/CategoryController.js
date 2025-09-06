@@ -1,17 +1,43 @@
 const { Category } = require('../../models/Category');
 const CategoryService = require('../../Services/CategoryService');
+const { Op } = require('sequelize');
 
 exports.ListCategory = async (req, res, next) => {
     try {
         const connect = await Category();
-        const { count, rows } = await connect.findAndCountAll();
-        return res.render('admin/Category/listCategory', { Category: rows });
+        
+        // Xử lý search như bên product
+        let condition = {};
+        if (req.query && req.query.search) {
+            condition.name = { [Op.like]: `%${req.query.search}%` };
+        }
+
+        const { count, rows } = await connect.findAndCountAll({
+            where: condition,
+            order: [['name', 'ASC']]
+        });
+
+        return res.render('admin/Category/listCategory', { 
+            Category: rows,
+            searchTerm: req.query.search || '',
+            searchResults: count,
+            success: req.query.success || null
+        });
 
     } catch (error) {
         console.log("Lỗi" + error);
+        
+        if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+            return res.status(500).json({
+                success: false,
+                message: 'Đã xảy ra lỗi khi tìm kiếm'
+            });
+        }
+        
         return res.redirect('/admin/');
     }
 }
+
 
 exports.AddCategory = async (req, res, next) => {
     try {
