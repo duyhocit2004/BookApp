@@ -46,6 +46,7 @@ Routers.post('/PostCategory', CategoryController.PostCategory);
 Routers.get('/EditCategory/:id', CategoryController.EditCategory);
 Routers.post('/UpdateCategory/:id', CategoryController.UpdateCategory);
 Routers.delete('/DeleteCategory/:id', CategoryController.DeleteCategory);
+Routers.post('/checkCategoryName', CategoryController.CheckCategoryName);
 
 Routers.get('/AccountUser', UserController.AccountUser);
 Routers.get('/AccountBusiness', UserController.AccountBusiness);

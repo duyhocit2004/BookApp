@@ -6,13 +6,29 @@ exports.PostCategory = async (req, res) => {
         if (!name) {
             return res.render('admin/Category/addCategory', { error: 'Vui lòng nhập tên danh mục' });
         }
+        
         const connect = await Category();
-        await connect.create({ name });
+        
+        const existingCategory = await connect.findOne({
+            where: { name: name.trim() }
+        });
+        
+        if (existingCategory) {
+            return res.render('admin/Category/addCategory', { 
+                error: 'Tên danh mục đã tồn tại. Vui lòng chọn tên khác.',
+                name: name.trim()
+            });
+        }
+        
+        await connect.create({ name: name.trim() });
         return res.redirect('/admin/ListCategory?success=add');
 
     } catch (error) {
         console.log("Lỗi" + error);
-        return res.render('admin/Category/addCategory', { error: 'Đã xảy ra lỗi. Vui lòng thử lại.' });
+        return res.render('admin/Category/addCategory', { 
+            error: 'Đã xảy ra lỗi. Vui lòng thử lại.',
+            name: req.body.name || ''
+        });
     }
 }
 
@@ -75,7 +91,22 @@ exports.UpdateCategory = async (req, res) => {
         
         const connect = await Category();
         
-        await connect.update({ name }, { where: { id } });
+        // Kiểm tra trùng tên danh mục (loại trừ danh mục hiện tại)
+        const existingCategory = await connect.findOne({
+            where: { 
+                name: name.trim(),
+                id: { [require('sequelize').Op.ne]: id }
+            }
+        });
+        
+        if (existingCategory) {
+            return res.render('admin/Category/editCategory', { 
+                category: { id, name: name.trim() },
+                error: 'Tên danh mục đã tồn tại. Vui lòng chọn tên khác.' 
+            });
+        }
+        
+        await connect.update({ name: name.trim() }, { where: { id } });
         return res.redirect('/admin/ListCategory?success=edit');
 
     } catch (error) {
@@ -84,6 +115,36 @@ exports.UpdateCategory = async (req, res) => {
             category: { id: req.params.id, name: req.body.name || '' },
             error: 'Đã xảy ra lỗi. Vui lòng thử lại.' 
         });
+    }
+}
+
+exports.CheckCategoryName = async (req, res) => {
+    try {
+        const { name, excludeId } = req.body;
+        
+        if (!name || name.trim() === '') {
+            return res.json({ exists: false });
+        }
+        
+        const connect = await Category();
+        const { Op } = require('sequelize');
+        
+        let whereCondition = { name: name.trim() };
+        
+        // Nếu có excludeId (khi edit), loại trừ category hiện tại
+        if (excludeId) {
+            whereCondition.id = { [Op.ne]: excludeId };
+        }
+        
+        const existingCategory = await connect.findOne({
+            where: whereCondition
+        });
+        
+        return res.json({ exists: !!existingCategory });
+
+    } catch (error) {
+        console.log("Lỗi" + error);
+        return res.status(500).json({ exists: false, error: 'Đã xảy ra lỗi khi kiểm tra tên' });
     }
 }
 

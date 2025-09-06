@@ -376,7 +376,7 @@
                         let searchTimeout;
                         const searchInput = document.getElementById('search-input');
                         const tbody = document.querySelector('tbody');
-                        const resultInfo = document.querySelector('.mx-auto.hidden.opacity-70.md\\:block');
+                        const resultInfo = document.querySelector('.mx-auto.hidden.opacity-70');
                         
                         function updateTable(categories, searchTerm, totalItems) {
                             if (categories.length === 0) {
@@ -429,6 +429,7 @@
                         
                         function performSearch(searchValue) {
                             const url = searchValue ? `/admin/ListCategory?search=${encodeURIComponent(searchValue)}` : '/admin/ListCategory';
+                            console.log('Searching for:', searchValue, 'URL:', url);
                             
                             fetch(url, {
                                 method: 'GET',
@@ -437,8 +438,12 @@
                                     'X-Requested-With': 'XMLHttpRequest'
                                 }
                             })
-                            .then(response => response.json())
+                            .then(response => {
+                                console.log('Response status:', response.status);
+                                return response.json();
+                            })
                             .then(data => {
+                                console.log('Response data:', data);
                                 if (data.success) {
                                     updateTable(data.categories, data.searchTerm, data.totalItems);
                                 } else {

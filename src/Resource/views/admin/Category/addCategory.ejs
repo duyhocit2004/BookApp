@@ -54,7 +54,8 @@
                                                     class="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 mb-2">Tên danh mục</label>
                                                 <input
                                                     class="h-10 rounded-md border bg-background px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-foreground/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/5 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
-                                                    id="crud-form-1" name="name" type="text" placeholder="Nhập tên danh mục" required>
+                                                    id="crud-form-1" name="name" type="text" placeholder="Nhập tên danh mục" 
+                                                    value="<%= typeof name !== 'undefined' ? name : '' %>" required>
                                             </div>
 
                                             <div class="mt-5 text-right">
@@ -77,6 +78,96 @@
                 </div>
                 <%- include('../layout/js.ejs')%>
                     <!-- END: Pages, layouts, components JS Assets-->
+                    
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const nameInput = document.getElementById('crud-form-1');
+                            const form = document.querySelector('form');
+                            let checkTimeout;
+                            
+                            if (nameInput) {
+                                nameInput.addEventListener('input', function(e) {
+                                    const name = e.target.value.trim();
+                                    
+                                    // Clear previous timeout
+                                    clearTimeout(checkTimeout);
+                                    
+                                    // Set new timeout for checking
+                                    checkTimeout = setTimeout(() => {
+                                        if (name.length > 0) {
+                                            checkDuplicateName(name);
+                                        }
+                                    }, 500);
+                                });
+                                
+                                // Prevent form submission if name is duplicate
+                                form.addEventListener('submit', function(e) {
+                                    const name = nameInput.value.trim();
+                                    if (name.length > 0) {
+                                        // Check synchronously before submit
+                                        fetch('/admin/checkCategoryName', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                            },
+                                            body: JSON.stringify({ name: name })
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (data.exists) {
+                                                e.preventDefault();
+                                                showError('Tên danh mục đã tồn tại. Vui lòng chọn tên khác.');
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error('Error checking name:', error);
+                                        });
+                                    }
+                                });
+                            }
+                            
+                            function checkDuplicateName(name) {
+                                fetch('/admin/checkCategoryName', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify({ name: name })
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.exists) {
+                                        showError('Tên danh mục đã tồn tại. Vui lòng chọn tên khác.');
+                                    } else {
+                                        hideError();
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error checking name:', error);
+                                });
+                            }
+                            
+                            function showError(message) {
+                                hideError(); // Remove existing error
+                                
+                                const errorDiv = document.createElement('div');
+                                errorDiv.id = 'duplicate-error';
+                                errorDiv.className = 'mt-2 p-3 bg-red-100 border border-red-400 text-red-700 rounded text-sm';
+                                errorDiv.textContent = message;
+                                
+                                nameInput.parentNode.appendChild(errorDiv);
+                                nameInput.classList.add('border-red-500');
+                            }
+                            
+                            function hideError() {
+                                const existingError = document.getElementById('duplicate-error');
+                                if (existingError) {
+                                    existingError.remove();
+                                }
+                                nameInput.classList.remove('border-red-500');
+                            }
+                        });
+                    </script>
     </body>
 
     <!-- Mirrored from midone-html.left4code.com/enigma-side-menu-dashboard-overview-1-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Aug 2025 16:29:44 GMT -->

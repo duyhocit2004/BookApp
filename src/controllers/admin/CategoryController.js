@@ -6,7 +6,6 @@ exports.ListCategory = async (req, res, next) => {
     try {
         const connect = await Category();
         
-        // Xử lý search như bên product
         let condition = {};
         if (req.query && req.query.search) {
             condition.name = { [Op.like]: `%${req.query.search}%` };
@@ -17,6 +16,16 @@ exports.ListCategory = async (req, res, next) => {
             order: [['name', 'ASC']]
         });
 
+        if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+            return res.json({
+                success: true,
+                categories: rows,
+                totalItems: count,
+                searchTerm: req.query.search || ''
+            });
+        }
+
+        // Nếu là request bình thường, render trang
         return res.render('admin/Category/listCategory', { 
             Category: rows,
             searchTerm: req.query.search || '',
@@ -63,4 +72,8 @@ exports.EditCategory = async (req, res) => {
 
 exports.UpdateCategory = async (req, res) => {
     return await CategoryService.UpdateCategory(req, res);
+}
+
+exports.CheckCategoryName = async (req, res) => {
+    return await CategoryService.CheckCategoryName(req, res);
 }
